@@ -1,6 +1,6 @@
 [package]
 org = "wso2"
-name = "list_all_meetings"
+name = "schedule_team_meeting"
 version = "0.1.0"
 distribution = "2201.12.7"
 

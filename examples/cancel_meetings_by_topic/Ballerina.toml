@@ -1,6 +1,6 @@
 [package]
 org = "wso2"
-name = "create_new_meeting"
+name = "cancel_meetings_by_topic"
 version = "0.1.0"
 distribution = "2201.12.7"
 

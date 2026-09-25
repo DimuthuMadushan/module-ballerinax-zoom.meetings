@@ -2,12 +2,13 @@
 
 [![Build](https://github.com/ballerina-platform/module-ballerinax-zoom.meetings/actions/workflows/ci.yml/badge.svg)](https://github.com/ballerina-platform/module-ballerinax-zoom.meetings/actions/workflows/ci.yml)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/ballerina-platform/module-ballerinax-zoom.meetings.svg)](https://github.com/ballerina-platform/module-ballerinax-zoom.meetings/commits/master)
-[![GitHub Issues](https://img.shields.io/github/issues/ballerina-platform/ballerina-library/module/zoom.meetings.svg?label=Open%20Issues)](https://github.com/ballerina-platform/ballerina-library/labels/module%zoom.meetings)
+[![GitHub Issues](https://img.shields.io/github/issues/ballerina-platform/ballerina-library/module/zoom.meetings.svg?label=Open%20Issues)](https://github.com/ballerina-platform/ballerina-library/labels/module%2Fzoom.meetings)
 
 ## Overview
-[Zoom](https://www.zoom.com/) is a widely-used video conferencing service provided by Zoom Video Communications, enabling users to host and attend virtual meetings, webinars, and collaborate online.
 
-The `ballerinax/zoom.meetings` package offers APIs to connect and interact with Zoom API endpoints, specifically based on [Zoom API v2](https://developers.zoom.us/docs/api/meetings/).
+[Zoom](https://www.zoom.com/) is a video conferencing platform from Zoom Video Communications that lets people host and join online meetings and webinars from any device.
+
+The Zoom Meetings connector lets Ballerina applications work with version 2 of the Zoom Meetings API. It covers the full lifecycle of meetings and webinars, from scheduling and registration through in-meeting controls to recordings, transcripts, summaries and usage reports.
 
 ## Setup guide
 
@@ -37,8 +38,7 @@ To use the Zoom meetings connector, you must have access to the Zoom API through
       
    2. **Set Redirect URI:** Add your application's redirect URI
 
-   3. **Add scopes:** Make sure your Zoom app has the necessary scopes for the meetings API:
-      * Add `meetings:read`, `meetings:write` and `user:read` in the scope
+   3. **Add scopes:** Add the scopes for the operations your application calls. Each operation lists the scopes it accepts in the API reference; for example, scheduling and listing meetings needs `meeting:write:meeting` and `meeting:read:list_meetings`, and looking up the user ID below needs `user:read:user`.
 
       ![App Scopes](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-zoom.meetings/refs/heads/main/docs/setup/resources/app-scopes.png)
 
@@ -52,7 +52,7 @@ To use the Zoom meetings connector, you must have access to the Zoom API through
 
    1. **Direct users to authorization URL** (replace `YOUR_CLIENT_ID` and `YOUR_REDIRECT_URI`):
       ```
-      https://zoom.us/oauth/authorize?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&scope=meetings:read meetings:write user:read
+      https://zoom.us/oauth/authorize?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI
       ```
 
    2. **User authorizes the app** and gets redirected to your callback URL with an authorization code
@@ -82,77 +82,70 @@ To use the Zoom meetings connector, you must have access to the Zoom API through
 
 ## Quickstart
 
-To use the `Zoom` connector in your Ballerina application, update the `.bal` file as follows:
+To use the Zoom Meetings connector in your Ballerina application, update the `.bal` file as follows:
 
 ### Step 1: Import the module
 
-   Import the `zoom.meetings` module.
+Import the `zoom.meetings` module.
 
-   ```ballerina
-   import ballerinax/zoom.meetings;
-   ```
+```ballerina
+import ballerinax/zoom.meetings;
+```
 
 ### Step 2: Instantiate a new connector
 
-   1. Create a `Config.toml` file and, configure the obtained credentials in the above steps as follows:
+1. Create a `Config.toml` file and configure the credentials obtained in the setup guide:
 
-      ```bash
-      refreshToken = "<refresh Token>"
-      refreshUrl = "<refresh URL>"
-      userId = "<user_id>"
-      clientId = "<client_id>"
-      clientSecret = "<client_secret>"
-      ```
+   ```toml
+   clientId = "<CLIENT_ID>"
+   clientSecret = "<CLIENT_SECRET>"
+   refreshToken = "<REFRESH_TOKEN>"
+   userId = "<USER_ID>"
+   ```
 
-   2. Create a `zoom.meeting:ConnectionConfig` with the obtained access token and initialize the connector with it.
+2. Create a `meetings:Client` with the credentials. The connector refreshes the access token against `https://zoom.us/oauth/token` as needed.
 
-      ```ballerina
-      configurable string refreshToken = ?;
-      ConnectionConfig config = {
-         auth: {
-            refreshToken,
-            clientId,
-            clientSecret,
-            refreshUrl
-         }
-      };
+   ```ballerina
+   configurable string clientId = ?;
+   configurable string clientSecret = ?;
+   configurable string refreshToken = ?;
+   configurable string userId = ?;
 
-      final Client zoomClient = check new Client(config, serviceUrl);
-      ```
+   final meetings:Client zoom = check new ({
+       auth: {clientId, clientSecret, refreshToken}
+   });
+   ```
 
 ### Step 3: Invoke the connector operation
 
-   Now, utilize the available connector operations.
+Now, utilize the available connector operations. For example, schedule a meeting for the user:
 
-   ```ballerina
-      meetings:InlineResponse20028 response = check zoomClient->/users/[originalId]/meetings();
-         meetings:InlineResponse20028Meetings[]? meetings = response.meetings;
-         if meetings is () {
-            io:println("No upcoming meetings found.");
-            return;
-         }
-         foreach var meeting in meetings {
-            if meeting.id is int && meeting.topic is string {
-                  io:println("Meeting ID: ", meeting.id);
-                  io:println("Topic    : ", meeting.topic);
-                  io:println("-------------------------------");
-            }
-         }
-   ```
+```ballerina
+public function main() returns error? {
+    meetings:CreateMeetingResponse _ = check zoom->createMeeting(userId, {
+        topic: "Team sync",
+        'type: 2,
+        startTime: "2026-10-01T15:00:00Z",
+        duration: 30
+    });
+}
+```
 
 ### Step 4: Run the Ballerina application
 
-   ```bash
-      bal run
-   ```
+```bash
+bal run
+```
 
 ## Examples
 
-The `Zoom Meetings` connector provides practical examples illustrating usage in various scenarios. Explore these [examples](https://github.com/ballerina-platform/module-ballerinax-zoom.meetings/tree/main/examples/), covering the following use cases:
+The Zoom Meetings connector provides practical examples illustrating usage in various scenarios. Explore these [examples](examples/), covering the following use cases:
 
-1. [**Create a Zoom meeting**](https://github.com/ballerina-platform/module-ballerinax-zoom.meetings/tree/main/examples/create-new-meeting) – Creates a new Zoom meeting using the API. 
+1. [Schedule a team meeting](examples/schedule_team_meeting/schedule_team_meeting.md) - Create a meeting with a waiting room, attach a poll, and print the invitation to share with attendees.
 
-2. [**List scheduled meetings**](https://github.com/ballerina-platform/module-ballerinax-zoom.meetings/tree/main/examples/list-all-meetings) – Displays the list of meetings scheduled under a specified Zoom user account. 
+2. [Cancel meetings by topic](examples/cancel_meetings_by_topic/cancel_meetings_by_topic.md) - Find every scheduled meeting whose topic contains a phrase and cancel them, with a dry run by default.
+
+## Build from the source
 
 ### Setting up the prerequisites
 1. Download and install Java SE Development Kit (JDK) version 21. You can download it from either of the following sources:
@@ -177,7 +170,7 @@ Execute the commands below to build from the source.
    ```bash
    ./gradlew clean test
    ```
-3. To build the without the tests:
+3. To build without the tests:
    ```bash
    ./gradlew clean build -x test
    ```
@@ -201,6 +194,7 @@ Execute the commands below to build from the source.
    ```bash
    ./gradlew clean build -PpublishToCentral=true
    ```
+
 ## Contribute to Ballerina
 
 As an open-source project, Ballerina welcomes contributions from the community.

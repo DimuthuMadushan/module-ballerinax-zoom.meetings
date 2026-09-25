@@ -1,25 +1,16 @@
 # Examples
 
-The `ballerinax/zoom.meetings` connector provides practical examples illustrating usage in various scenarios. Explore these examples to learn how to interact with Zoom APIs for creating a meeting and listing meetings.
+The `ballerinax/zoom.meetings` connector provides practical examples illustrating usage in various scenarios.
 
-1. Create a Zoom meeting – Creates a new Zoom meeting using the API. 
+1. [Schedule a team meeting](schedule_team_meeting/schedule_team_meeting.md) - Create a meeting with a waiting room, attach a poll, and print the invitation to share with attendees.
 
-2. List scheduled meetings – Displays the list of meetings scheduled under a specified Zoom user account. 
+2. [Cancel meetings by topic](cancel_meetings_by_topic/cancel_meetings_by_topic.md) - Find every scheduled meeting whose topic contains a phrase and cancel them, with a dry run by default.
 
 ## Prerequisites
 
-1. Create a Zoom account by clicking the Sign Up link here: https://marketplace.zoom.us/. Once you activate your account, you’ll be ready to join as a developer.
+1. Create a Zoom General App and obtain its client ID, client secret and a user refresh token, as described in the [setup guide](../ballerina/README.md#setup-guide).
 
-2. Generate credentials to authenticate the connector as described in the [Setup guide](https://github.com/ballerina-platform/module-ballerinax-zoom.meetings/tree/main/README.md).
-
-3. For each example, create a `Config.toml` file the related configuration. Here's an example of how your `Config.toml` file should look:
-    ```bash 
-    refreshToken = "<refresh Token>"
-    refreshUrl = "<refresh URL>"
-    userId = "<user_id>"
-    clientId = "<client_id>"
-    clientSecret = "<client_secret>"
-    ```
+2. For each example, create a `Config.toml` file with the configuration listed in that example's guide.
 
 ## Running an example
 
