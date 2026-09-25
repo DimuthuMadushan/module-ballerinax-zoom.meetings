@@ -2,7 +2,7 @@
 distribution = "2201.12.0"
 org = "ballerinax"
 name = "zoom.meetings"
-version = "1.0.2"
+version = "2.0.0"
 license = ["Apache-2.0"]
 authors = ["Ballerina"]
 keywords = ["video conference", "meetings", "Vendor/Zoom", "Area/Communication", "Type/Connector"]
@@ -11,6 +11,3 @@ repository = "https://github.com/ballerina-platform/module-ballerinax-zoom.meeti
 
 [build-options]
 observabilityIncluded = true
-
-[platform.java21]
-graalvmCompatible = true
