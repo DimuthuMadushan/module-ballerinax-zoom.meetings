@@ -103,6 +103,8 @@ import ballerinax/zoom.meetings;
    userId = "<USER_ID>"
    ```
 
+   Zoom issues a new refresh token each time the access token is refreshed and invalidates the old one. The client keeps the latest token in memory while the application runs, but it does not write it back to `Config.toml`. Before you restart the application, update `refreshToken` in `Config.toml` with the latest token, or it will fail to authenticate.
+
 2. Create a `meetings:Client` with the credentials. The connector refreshes the access token against `https://zoom.us/oauth/token` as needed.
 
    ```ballerina
@@ -125,6 +127,7 @@ public function main() returns error? {
     meetings:CreateMeetingResponse _ = check zoom->createMeeting(userId, {
         topic: "Team sync",
         'type: 2,
+        // Replace with a future date-time in UTC.
         startTime: "2026-10-01T15:00:00Z",
         duration: 30
     });
@@ -143,7 +146,7 @@ The Zoom Meetings connector provides practical examples illustrating usage in va
 
 1. [Schedule a team meeting](examples/schedule_team_meeting/schedule_team_meeting.md) - Create a meeting with a waiting room, attach a poll, and print the invitation to share with attendees.
 
-2. [Cancel meetings by topic](examples/cancel_meetings_by_topic/cancel_meetings_by_topic.md) - Find every scheduled meeting whose topic contains a phrase and cancel them, with a dry run by default.
+2. [Cancel meetings by topic](examples/cancel_meetings_by_topic/cancel_meetings_by_topic.md) - Find every upcoming meeting whose topic contains a phrase and cancel them, with a dry run by default.
 
 ## Build from the source
 

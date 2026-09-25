@@ -4,7 +4,7 @@ The `ballerinax/zoom.meetings` connector provides practical examples illustratin
 
 1. [Schedule a team meeting](schedule_team_meeting/schedule_team_meeting.md) - Create a meeting with a waiting room, attach a poll, and print the invitation to share with attendees.
 
-2. [Cancel meetings by topic](cancel_meetings_by_topic/cancel_meetings_by_topic.md) - Find every scheduled meeting whose topic contains a phrase and cancel them, with a dry run by default.
+2. [Cancel meetings by topic](cancel_meetings_by_topic/cancel_meetings_by_topic.md) - Find every upcoming meeting whose topic contains a phrase and cancel them, with a dry run by default.
 
 ## Prerequisites
 

@@ -27,6 +27,33 @@ final string refreshToken = isLiveServer ? os:getEnv("ZOOM_REFRESH_TOKEN") : "mo
 
 final Client zoom = check initClient();
 
+// Meetings created by the tests, deleted in `cleanUpMeetings` so a failing test cannot leak one.
+isolated int[] createdMeetings = [];
+
+isolated function trackMeeting(int meetingId) {
+    lock {
+        createdMeetings.push(meetingId);
+    }
+}
+
+@test:AfterSuite {alwaysRun: true}
+function cleanUpMeetings() {
+    if !isLiveServer {
+        return;
+    }
+    int[] ids;
+    lock {
+        ids = createdMeetings.clone();
+    }
+    foreach int id in ids {
+        error? result = zoom->deleteMeeting(id);
+        if result is error {
+            // Best effort: a meeting the test already deleted returns 404, which is fine to ignore.
+            continue;
+        }
+    }
+}
+
 isolated function initClient() returns Client|error {
     if isLiveServer {
         return new ({auth: {clientId, clientSecret, refreshToken}}, serviceUrl);
@@ -49,6 +76,7 @@ isolated function createFixtureMeeting(string topic) returns int|error {
     if id is () {
         return error("createMeeting returned no meeting ID");
     }
+    trackMeeting(id);
     return id;
 }
 
@@ -61,12 +89,10 @@ function testCreateMeeting() returns error? {
         duration: 45,
         timezone: "UTC"
     });
-    test:assertTrue(response.id is int);
+    int meetingId = check response.id.ensureType();
+    trackMeeting(meetingId);
     test:assertEquals(response.topic, "Connector test meeting");
     test:assertTrue(response.joinUrl is string);
-    if isLiveServer {
-        check zoom->deleteMeeting(<int>response.id);
-    }
 }
 
 @test:Config {groups: ["live_tests", "mock_tests"]}
@@ -81,9 +107,6 @@ function testGetMeeting() returns error? {
     GetMeetingResponse response = check zoom->getMeeting(meetingId);
     test:assertEquals(response.id, meetingId);
     test:assertTrue(response.topic is string);
-    if isLiveServer {
-        check zoom->deleteMeeting(meetingId);
-    }
 }
 
 @test:Config {groups: ["live_tests", "mock_tests"]}
@@ -93,7 +116,6 @@ function testUpdateMeeting() returns error? {
     if isLiveServer {
         GetMeetingResponse updated = check zoom->getMeeting(meetingId);
         test:assertEquals(updated.topic, "Connector update test (renamed)");
-        check zoom->deleteMeeting(meetingId);
     }
 }
 
@@ -106,6 +128,7 @@ function testDeleteMeeting() returns error? {
         duration: 30
     });
     int meetingId = check created.id.ensureType();
+    trackMeeting(meetingId);
     error? result = zoom->deleteMeeting(meetingId);
     test:assertTrue(result is ());
 }
@@ -121,9 +144,6 @@ function testGetMeetingInvitation() returns error? {
     int meetingId = check createFixtureMeeting("Connector invitation test");
     GetMeetingInvitationResponse response = check zoom->getMeetingInvitation(meetingId);
     test:assertTrue(response.invitation is string);
-    if isLiveServer {
-        check zoom->deleteMeeting(meetingId);
-    }
 }
 
 @test:Config {groups: ["mock_tests"]}
@@ -183,9 +203,6 @@ function testCreateMeetingPoll() returns error? {
     });
     test:assertTrue(response.id is string);
     test:assertEquals(response.title, "Roadmap priorities");
-    if isLiveServer {
-        check zoom->deleteMeeting(meetingId);
-    }
 }
 
 @test:Config {groups: ["live_tests", "mock_tests"]}
@@ -193,9 +210,6 @@ function testListMeetingPolls() returns error? {
     int meetingId = check createFixtureMeeting("Connector list polls test");
     ListMeetingPollsResponse response = check zoom->listMeetingPolls(meetingId);
     test:assertTrue(response.polls is ListMeetingPollsResponsePoll[]);
-    if isLiveServer {
-        check zoom->deleteMeeting(meetingId);
-    }
 }
 
 @test:Config {groups: ["live_tests", "mock_tests"]}
@@ -208,9 +222,6 @@ function testGetMeetingPoll() returns error? {
     string pollId = check created.id.ensureType();
     GetMeetingPollResponse response = check zoom->getMeetingPoll(meetingId, pollId);
     test:assertEquals(response.id, pollId);
-    if isLiveServer {
-        check zoom->deleteMeeting(meetingId);
-    }
 }
 
 @test:Config {groups: ["live_tests", "mock_tests"]}
@@ -223,9 +234,6 @@ function testDeleteMeetingPoll() returns error? {
     string pollId = check created.id.ensureType();
     error? result = zoom->deleteMeetingPoll(meetingId, pollId);
     test:assertTrue(result is ());
-    if isLiveServer {
-        check zoom->deleteMeeting(meetingId);
-    }
 }
 
 @test:Config {groups: ["mock_tests"]}

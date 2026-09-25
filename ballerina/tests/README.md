@@ -44,14 +44,14 @@ export ZOOM_REFRESH_TOKEN="your_refresh_token"
 export ZOOM_USER_ID="your_user_id"
 ```
 
-On Windows:
+On Windows (PowerShell, current session):
 
-```bash
-setx IS_LIVE_SERVER true
-setx ZOOM_CLIENT_ID "your_client_id"
-setx ZOOM_CLIENT_SECRET "your_client_secret"
-setx ZOOM_REFRESH_TOKEN "your_refresh_token"
-setx ZOOM_USER_ID "your_user_id"
+```powershell
+$env:IS_LIVE_SERVER = "true"
+$env:ZOOM_CLIENT_ID = "your_client_id"
+$env:ZOOM_CLIENT_SECRET = "your_client_secret"
+$env:ZOOM_REFRESH_TOKEN = "your_refresh_token"
+$env:ZOOM_USER_ID = "your_user_id"
 ```
 
 Then run the live tests:

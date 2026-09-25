@@ -65,6 +65,19 @@ public function main() returns error? {
     io:println("Created meeting ", meetingId, ": ", meeting.topic ?: meetingTopic);
     io:println("Join URL: ", meeting.joinUrl ?: "(not returned)");
 
+    // Steps 2 and 3 run against the new meeting; if either fails, delete it rather than leave it scheduled.
+    string|error text = addPollAndGetInvitation(zoom, meetingId, answers);
+    if text is error {
+        error? deleted = zoom->deleteMeeting(meetingId);
+        if deleted is error {
+            return error(string `${text.message()}. Meeting ${meetingId} could not be deleted and is still scheduled; delete it in Zoom.`, text);
+        }
+        return error(string `${text.message()}. Meeting ${meetingId} was deleted.`, text);
+    }
+    io:println("\n--- Invitation ---\n", text);
+}
+
+function addPollAndGetInvitation(meetings:Client zoom, int meetingId, string[] answers) returns string|error {
     // Step 2: attach a single-choice poll the host can launch during the meeting.
     meetings:CreateMeetingPollResponse poll = check zoom->createMeetingPoll(meetingId, {
         title: pollQuestion,
@@ -79,5 +92,5 @@ public function main() returns error? {
     if text is () {
         return error(string `Zoom returned no invitation text for meeting ${meetingId}`);
     }
-    io:println("\n--- Invitation ---\n", text);
+    return text;
 }

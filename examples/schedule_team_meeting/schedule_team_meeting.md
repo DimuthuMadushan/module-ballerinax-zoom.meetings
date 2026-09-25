@@ -5,6 +5,7 @@ This example schedules a Zoom meeting that holds attendees in a waiting room unt
 ## Prerequisites
 
 - A Zoom General App, its client ID and client secret, and a refresh token for the user who will host the meeting, as described in the [setup guide](../../ballerina/README.md#setup-guide). The app needs the `meeting:write:meeting`, `meeting:write:poll` and `meeting:read:invitation` scopes.
+- The host must be on a Zoom Pro or higher plan, with meeting polls enabled in the account or user settings (**Settings** > **Meeting** > **Meeting polls/quizzes**).
 - Push the connector to the local repository:
   ```bash
   cd ../../ballerina
