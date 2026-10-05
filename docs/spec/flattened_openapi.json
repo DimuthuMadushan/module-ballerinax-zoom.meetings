@@ -82,8 +82,8 @@
           "schema" : {
             "type" : "string",
             "example" : "meeting_start_time",
-            "default" : "meeting_start_time",
-            "enum" : [ "meeting_start_time", "archive_complete_time" ]
+            "enum" : [ "meeting_start_time", "archive_complete_time" ],
+            "default" : "meeting_start_time"
           }
         }, {
           "name" : "group_id",
@@ -574,8 +574,8 @@
           "schema" : {
             "type" : "string",
             "example" : "delete",
-            "default" : "trash",
-            "enum" : [ "trash", "delete" ]
+            "enum" : [ "trash", "delete" ],
+            "default" : "trash"
           }
         } ],
         "responses" : {
@@ -813,8 +813,8 @@
           "schema" : {
             "type" : "string",
             "example" : "pending",
-            "default" : "approved",
-            "enum" : [ "pending", "approved", "denied" ]
+            "enum" : [ "pending", "approved", "denied" ],
+            "default" : "approved"
           }
         }, {
           "name" : "page_size",
@@ -1217,8 +1217,8 @@
           "schema" : {
             "type" : "string",
             "example" : "delete",
-            "default" : "trash",
-            "enum" : [ "trash", "delete" ]
+            "enum" : [ "trash", "delete" ],
+            "default" : "trash"
           }
         } ],
         "responses" : {
@@ -1578,8 +1578,8 @@
           "schema" : {
             "type" : "string",
             "example" : "all",
-            "default" : "all",
-            "enum" : [ "all", "added", "not_added", "processing" ]
+            "enum" : [ "all", "added", "not_added", "processing" ],
+            "default" : "all"
           }
         }, {
           "name" : "recording_source_type",
@@ -1677,8 +1677,8 @@
           "schema" : {
             "type" : "integer",
             "example" : 0,
-            "default" : -1,
-            "enum" : [ -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+            "enum" : [ -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ],
+            "default" : -1
           }
         }, {
           "name" : "device_vendor",
@@ -1712,8 +1712,8 @@
           "schema" : {
             "type" : "integer",
             "example" : 0,
-            "default" : -1,
-            "enum" : [ -1, 0, 1 ]
+            "enum" : [ -1, 0, 1 ],
+            "default" : -1
           }
         }, {
           "name" : "page_size",
@@ -2960,8 +2960,8 @@
           "schema" : {
             "type" : "string",
             "example" : "closed_caption_token",
-            "default" : "closed_caption_token",
-            "enum" : [ "closed_caption_token" ]
+            "enum" : [ "closed_caption_token" ],
+            "default" : "closed_caption_token"
           }
         } ],
         "responses" : {
@@ -3207,8 +3207,8 @@
           "schema" : {
             "type" : "string",
             "example" : "pending",
-            "default" : "approved",
-            "enum" : [ "pending", "approved", "denied" ]
+            "enum" : [ "pending", "approved", "denied" ],
+            "default" : "approved"
           }
         }, {
           "name" : "page_size",
@@ -4510,8 +4510,8 @@
           "schema" : {
             "type" : "string",
             "example" : "scheduled",
-            "default" : "scheduled",
-            "enum" : [ "scheduled", "live", "upcoming", "upcoming_meetings", "previous_meetings" ]
+            "enum" : [ "scheduled", "live", "upcoming", "upcoming_meetings", "previous_meetings" ],
+            "default" : "scheduled"
           }
         }, {
           "name" : "page_size",
@@ -5844,8 +5844,8 @@
           "schema" : {
             "type" : "string",
             "example" : "All Activities",
-            "default" : "All Activities",
-            "enum" : [ "All Activities", "Meeting Created", "Meeting Started", "User Join", "User Left", "Remote Control", "In-Meeting Chat", "Meeting Ended" ]
+            "enum" : [ "All Activities", "Meeting Created", "Meeting Started", "User Join", "User Left", "Remote Control", "In-Meeting Chat", "Meeting Ended" ],
+            "default" : "All Activities"
           }
         } ],
         "responses" : {
@@ -6360,8 +6360,8 @@
           "schema" : {
             "type" : "string",
             "example" : "3",
-            "default" : "1",
-            "enum" : [ "1", "2", "3" ]
+            "enum" : [ "1", "2", "3" ],
+            "default" : "1"
           }
         }, {
           "name" : "query_date_type",
@@ -6373,8 +6373,8 @@
           "schema" : {
             "type" : "string",
             "example" : "start_time",
-            "default" : "start_time",
-            "enum" : [ "start_time", "end_time", "meeting_start_time", "meeting_end_time" ]
+            "enum" : [ "start_time", "end_time", "meeting_start_time", "meeting_end_time" ],
+            "default" : "start_time"
           }
         }, {
           "name" : "from",
@@ -6536,8 +6536,8 @@
           "schema" : {
             "type" : "string",
             "example" : "meeting",
-            "default" : "all",
-            "enum" : [ "meeting", "webinar", "all" ]
+            "enum" : [ "meeting", "webinar", "all" ],
+            "default" : "all"
           }
         }, {
           "name" : "group_id",
@@ -6774,8 +6774,8 @@
           "schema" : {
             "type" : "string",
             "example" : "past",
-            "default" : "past",
-            "enum" : [ "past", "pastOne", "pastJoined" ]
+            "enum" : [ "past", "pastOne", "pastJoined" ],
+            "default" : "past"
           }
         } ],
         "responses" : {
@@ -7392,8 +7392,8 @@
           "schema" : {
             "type" : "string",
             "example" : "summary_created_time",
-            "default" : "summary_start_time",
-            "enum" : [ "summary_start_time", "summary_created_time" ]
+            "enum" : [ "summary_start_time", "summary_created_time" ],
+            "default" : "summary_start_time"
           }
         } ],
         "responses" : {
@@ -7600,8 +7600,8 @@
           "schema" : {
             "type" : "string",
             "example" : "summary_created_time",
-            "default" : "summary_start_time",
-            "enum" : [ "summary_start_time", "summary_created_time" ]
+            "enum" : [ "summary_start_time", "summary_created_time" ],
+            "default" : "summary_start_time"
           }
         } ],
         "responses" : {
@@ -9017,8 +9017,8 @@
           "schema" : {
             "type" : "string",
             "example" : "scheduled",
-            "default" : "scheduled",
-            "enum" : [ "scheduled", "upcoming" ]
+            "enum" : [ "scheduled", "upcoming" ],
+            "default" : "scheduled"
           }
         }, {
           "name" : "page_size",
@@ -10832,8 +10832,8 @@
           "schema" : {
             "type" : "string",
             "example" : "pending",
-            "default" : "approved",
-            "enum" : [ "pending", "approved", "denied" ]
+            "enum" : [ "pending", "approved", "denied" ],
+            "default" : "approved"
           }
         }, {
           "name" : "tracking_source_id",
@@ -11574,8 +11574,8 @@
           "schema" : {
             "type" : "string",
             "example" : "closed_caption_token",
-            "default" : "closed_caption_token",
-            "enum" : [ "closed_caption_token" ]
+            "enum" : [ "closed_caption_token" ],
+            "default" : "closed_caption_token"
           }
         } ],
         "responses" : {
@@ -11783,8 +11783,8 @@
             "type" : "integer",
             "description" : "Webinar types. \n `5` - webinar.  \n `6` - Recurring webinar with no fixed time.  \n `9` - Recurring webinar with a fixed time.",
             "example" : 5,
-            "default" : 5,
             "enum" : [ 5, 6, 9 ],
+            "default" : 5,
             "x-enum-descriptions" : [ "Webinar", "Recurring Webinar with no fixed time", "Recurring Webinar with fixed time" ]
           },
           "is_simulive" : {
@@ -11825,8 +11825,8 @@
             "type" : "string",
             "description" : "The time unit for delayed playback.\n`second` - The time unit for delayed playback is seconds.\n`minute` - The time unit for delayed playback is minutes.",
             "example" : "second",
-            "default" : "second",
-            "enum" : [ "second", "minute" ]
+            "enum" : [ "second", "minute" ],
+            "default" : "second"
           }
         },
         "description" : "{\"enable\":false,\"time\":0,\"timeunit\":\"second\"}"
@@ -12112,8 +12112,8 @@
                   "type" : "string",
                   "description" : "Upgrade firmware.",
                   "example" : "UPGRADE_FIRMWARE",
-                  "default" : "UPGRADE_FIRMWARE",
-                  "enum" : [ "UPGRADE_FIRMWARE" ]
+                  "enum" : [ "UPGRADE_FIRMWARE" ],
+                  "default" : "UPGRADE_FIRMWARE"
                 }
               }
             }, {
@@ -12187,8 +12187,8 @@
             "type" : "string",
             "description" : "Specify one of these values for this field.\n\n`ZR` - Zoom Room computer.  \n \n`ZRC` - Zoom Room controller.  \n \n`ZRP` - Scheduling display.  \n \n`ZRW` - Companion whiteboard.",
             "example" : "ZR",
-            "default" : "ZR",
-            "enum" : [ "ZR", "ZRC", "ZRP", "ZRW" ]
+            "enum" : [ "ZR", "ZRC", "ZRP", "ZRW" ],
+            "default" : "ZR"
           }
         }
       },
@@ -12678,8 +12678,8 @@
             "type" : "integer",
             "description" : "Enable registration and set approval for the registration. Note that this feature requires the host to be of **Licensed** user type. **Registration cannot be enabled for a basic user.**   \n   \n \n\n`0` - Automatically approve.  \n `1` - Manually approve.  \n `2` - No registration required.",
             "example" : 0,
-            "default" : 2,
             "enum" : [ 0, 1, 2 ],
+            "default" : 2,
             "x-enum-descriptions" : [ "Automatically Approve", "Manually Approve", "No Registration Required" ]
           },
           "approved_or_denied_countries_or_regions" : {
@@ -12689,8 +12689,8 @@
             "type" : "string",
             "description" : "Determine how participants can join the audio portion of the meeting.  \n `both` - Both Telephony and VoIP.  \n `telephony` - Telephony only.  \n `voip` - VoIP only.  \n `thirdParty` - Third party audio conference.",
             "example" : "telephony",
-            "default" : "both",
             "enum" : [ "both", "telephony", "voip", "thirdParty" ],
+            "default" : "both",
             "x-enum-descriptions" : [ "Both Telephony and VoIP", "Telephony only", "VoIP only", "Third party audio conference" ]
           },
           "audio_conference_info" : {
@@ -12725,8 +12725,8 @@
             "type" : "string",
             "description" : "The automatic recording settings. \n* `local` - Record the meeting locally. \n* `cloud` - Record the meeting to the cloud. \n* `none` - Auto-recording disabled.\n\nThis value defaults to `none`.",
             "example" : "cloud",
-            "default" : "none",
-            "enum" : [ "local", "cloud", "none" ]
+            "enum" : [ "local", "cloud", "none" ],
+            "default" : "none"
           },
           "host_pause_stop_recording" : {
             "type" : "boolean",
@@ -12889,8 +12889,8 @@
             "type" : "integer",
             "description" : "Registration type. Used for recurring meeting with fixed time only. \n `1` - Attendees register once and can attend any of the occurrences.  \n `2` - Attendees need to register for each occurrence to attend.  \n `3` - Attendees register once and can choose one or more occurrences to attend.",
             "example" : 1,
-            "default" : 1,
             "enum" : [ 1, 2, 3 ],
+            "default" : 1,
             "x-enum-descriptions" : [ "Attendees register once and can attend any of the occurrences", "Attendees need to register for each occurrence to attend", "Attendees register once and can choose one or more occurrences to attend" ]
           },
           "show_share_button" : {
@@ -13031,8 +13031,8 @@
             "type" : "string",
             "description" : "Which recording options are unavailable to the in-meeting host through the Zoom client.\n\n* `none` - All recording options are available to the host. This is the default. \n* `all` - All recording options are unavailable to the host. \n\nNot supported when `auto_recording` is set to `local`.",
             "example" : "all",
-            "default" : "none",
-            "enum" : [ "none", "all" ]
+            "enum" : [ "none", "all" ],
+            "default" : "none"
           }
         },
         "description" : "Meeting settings."
@@ -13090,8 +13090,8 @@
             "type" : "string",
             "description" : "This field is **required** if you're scheduling a recurring meeting of type `2`. It states the days of the week when the meeting should repeat. \n\nThis field's value could be a number between `1` to `7` in string format. For instance, if the meeting should recur on Sunday, provide `1` as this field's value.  \n\n**Note:** To set the meeting to occur on multiple days of a week, provide comma separated values for this field. For instance, if the meeting should recur on Sundays and Tuesdays, provide `1,3` as this field's value.\n\n   \n `1` - Sunday.   \n `2` - Monday.  \n `3` - Tuesday.  \n `4` -  Wednesday.  \n `5` -  Thursday.  \n `6` - Friday.  \n `7` - Saturday.",
             "example" : "1",
-            "default" : "1",
-            "enum" : [ "1", "2", "3", "4", "5", "6", "7" ]
+            "enum" : [ "1", "2", "3", "4", "5", "6", "7" ],
+            "default" : "1"
           }
         },
         "description" : "The recurrence object. Use this object only for a meeting with type `8`, a recurring meeting with a fixed time. "
@@ -13533,8 +13533,8 @@
             "type" : "integer",
             "description" : "The meeting type.\n* `1` - An instant meeting. \n* `2` - A scheduled meeting. \n* `3` - A recurring meeting with no fixed time. \n* `8` - A recurring meeting with fixed time. \n* `10` - A screen share only meeting.",
             "example" : 2,
-            "default" : 2,
-            "enum" : [ 1, 2, 3, 8, 10 ]
+            "enum" : [ 1, 2, 3, 8, 10 ],
+            "default" : 2
           },
           "dynamic_host_key" : {
             "type" : "string",
@@ -14991,8 +14991,8 @@
             "type" : "integer",
             "description" : "Webinar types. \n `5` - Webinar.  \n `6` - Recurring webinar with no fixed time.  \n `9` - Recurring webinar with a fixed time.",
             "example" : 5,
-            "default" : 5,
             "enum" : [ 5, 6, 9 ],
+            "default" : 5,
             "x-enum-descriptions" : [ "Webinar", "Recurring webinar with no fixed time", "Recurring webinar with fixed time" ]
           },
           "is_simulive" : {
@@ -15139,6 +15139,12 @@
             "format" : "url",
             "example" : "https://example.com/j/11111"
           },
+          "status" : {
+            "type" : "string",
+            "description" : "The registrant's registration status.\n* `approved` - The registrant is approved to join the meeting. \n* `pending` - The registrant's registration is pending.\n* `denied` - The registrant was declined to join the meeting.",
+            "example" : "approved",
+            "enum" : [ "approved", "pending", "denied" ]
+          },
           "participant_pin_code" : {
             "type" : "integer",
             "description" : "The participant PIN code is used to authenticate audio participants before they join the meeting.",
@@ -15230,8 +15236,8 @@
             "type" : "string",
             "description" : "The time unit for delayed playback.\n`second` - The time unit for delayed playback is seconds.\n`minute` - The time unit for delayed playback is minutes.",
             "example" : "second",
-            "default" : "second",
-            "enum" : [ "second", "minute" ]
+            "enum" : [ "second", "minute" ],
+            "default" : "second"
           }
         },
         "description" : "{\"enable\":false,\"time\":0,\"timeunit\":\"second\"}"
@@ -16153,8 +16159,8 @@
             "type" : "integer",
             "description" : "`0` - Automatically approve.  \n `1` - Manually approve.  \n `2` - No registration required.",
             "example" : 0,
-            "default" : 2,
             "enum" : [ 0, 1, 2 ],
+            "default" : 2,
             "x-enum-descriptions" : [ "Automatically Approve", "Manually Approve", "No Registration Required" ]
           },
           "attendees_and_panelists_reminder_email_notification" : {
@@ -16164,8 +16170,8 @@
             "type" : "string",
             "description" : "Determine how participants can join the audio portion of the webinar.",
             "example" : "telephony",
-            "default" : "both",
             "enum" : [ "both", "telephony", "voip", "thirdParty" ],
+            "default" : "both",
             "x-enum-descriptions" : [ "Both Telephony and VoIP", "Telephony only", "VoIP only", "Third party audio conference" ]
           },
           "audio_conference_info" : {
@@ -16193,8 +16199,8 @@
             "type" : "string",
             "description" : "Automatic recording. \n `local` - Record on local.  \n `cloud` -  Record on cloud.  \n `none` - Disabled.",
             "example" : "cloud",
-            "default" : "none",
             "enum" : [ "local", "cloud", "none" ],
+            "default" : "none",
             "x-enum-descriptions" : [ "Record to local device", "Record to cloud", "No Recording" ]
           },
           "close_registration" : {
@@ -16346,8 +16352,8 @@
             "type" : "integer",
             "description" : "Registration types. Only used for recurring webinars with a fixed time.  \n `1` - Attendees register once and can attend any of the webinar sessions.  \n `2` - Attendees need to register for each session in order to attend.  \n `3` - Attendees register once and can choose one or more sessions to attend.",
             "example" : 1,
-            "default" : 1,
             "enum" : [ 1, 2, 3 ],
+            "default" : 1,
             "x-enum-descriptions" : [ "Attendees register once and can attend any of the occurrences", "Attendees need to register for each occurrence to attend", "Attendees register once and can choose one or more occurrences to attend" ]
           },
           "send_1080p_video_to_attendees" : {
@@ -16952,8 +16958,8 @@
             "type" : "string",
             "description" : "The Zoom AI mode to start or stop. Use this field if you pass the `ai_companion.start` or `ai_companion.stop` value for the `method` field.\n* `questions` — The Zoom AI mode for answering questions.\n* `summary` — The Zoom AI mode for generating meeting summaries.\n* `all` — Both modes.\n\nIf this field is not provided, `all` is used by default.",
             "example" : "questions",
-            "default" : "all",
-            "enum" : [ "questions", "summary", "all" ]
+            "enum" : [ "questions", "summary", "all" ],
+            "default" : "all"
           },
           "retain_meeting_transcript" : {
             "type" : "boolean",
@@ -18379,8 +18385,8 @@
             "type" : "integer",
             "description" : "`0` - Automatically approve.  \n `1` - Manually approve.  \n `2` - No registration required.",
             "example" : 0,
-            "default" : 2,
             "enum" : [ 0, 1, 2 ],
+            "default" : 2,
             "x-enum-descriptions" : [ "Automatically Approve", "Manually Approve", "No Registration Required" ]
           },
           "attendees_and_panelists_reminder_email_notification" : {
@@ -18390,8 +18396,8 @@
             "type" : "string",
             "description" : "Determine how participants can join the audio portion of the webinar.",
             "example" : "telephony",
-            "default" : "both",
             "enum" : [ "both", "telephony", "voip", "thirdParty" ],
+            "default" : "both",
             "x-enum-descriptions" : [ "Both Telephony and VoIP", "Telephony only", "VoIP only", "Third party audio conference" ]
           },
           "audio_conference_info" : {
@@ -18414,8 +18420,8 @@
             "type" : "string",
             "description" : "Automatic recording. \n `local` - Record on local.  \n `cloud` -  Record on cloud.  \n `none` - Disabled.",
             "example" : "cloud",
-            "default" : "none",
             "enum" : [ "local", "cloud", "none" ],
+            "default" : "none",
             "x-enum-descriptions" : [ "Record to local device", "Record to cloud", "No Recording" ]
           },
           "close_registration" : {
@@ -18565,8 +18571,8 @@
             "type" : "integer",
             "description" : "Registration types. Only used for recurring webinars with a fixed time.  \n `1` - Attendees register once and can attend any of the webinar sessions.  \n `2` - Attendees need to register for each session in order to attend.  \n `3` - Attendees register once and can choose one or more sessions to attend.",
             "example" : 1,
-            "default" : 1,
             "enum" : [ 1, 2, 3 ],
+            "default" : 1,
             "x-enum-descriptions" : [ "Attendees register once and can attend any of the occurrences", "Attendees need to register for each occurrence to attend", "Attendees register once and can choose one or more occurrences to attend" ]
           },
           "send_1080p_video_to_attendees" : {
@@ -18690,8 +18696,8 @@
             "type" : "integer",
             "description" : "Enable registration and set approval for the registration. Note that this feature requires the host to be of **Licensed** user type. **Registration cannot be enabled for a basic user.**   \n   \n \n\n`0` - Automatically approve.  \n `1` - Manually approve.  \n `2` - No registration required.",
             "example" : 0,
-            "default" : 2,
             "enum" : [ 0, 1, 2 ],
+            "default" : 2,
             "x-enum-descriptions" : [ "Automatically Approve", "Manually Approve", "No Registration Required" ]
           },
           "approved_or_denied_countries_or_regions" : {
@@ -18701,8 +18707,8 @@
             "type" : "string",
             "description" : "Determine how participants can join the audio portion of the meeting.  \n `both` - Both Telephony and VoIP.  \n `telephony` - Telephony only.  \n `voip` - VoIP only.  \n `thirdParty` - Third party audio conference.",
             "example" : "telephony",
-            "default" : "both",
             "enum" : [ "both", "telephony", "voip", "thirdParty" ],
+            "default" : "both",
             "x-enum-descriptions" : [ "Both Telephony and VoIP", "Telephony only", "VoIP only", "Third party audio conference" ]
           },
           "audio_conference_info" : {
@@ -18737,15 +18743,15 @@
             "type" : "string",
             "description" : "Automatic recording settings. \n\n* `local` - Record the meeting locally. \n* `cloud` - Record the meeting to the cloud. \n* `none` - Auto-recording disabled.\n\nDefault is `none`.",
             "example" : "cloud",
-            "default" : "none",
-            "enum" : [ "local", "cloud", "none" ]
+            "enum" : [ "local", "cloud", "none" ],
+            "default" : "none"
           },
           "disable_recording_control" : {
             "type" : "string",
             "description" : "Which recording options are unavailable to the in-meeting host through the Zoom client.\n\n* `none` - All recording options are available to the host. This is the default. \n* `all` - All recording options are unavailable to the host. \n\nNot supported when `auto_recording` is set to `local`.",
             "example" : "all",
-            "default" : "none",
-            "enum" : [ "none", "all" ]
+            "enum" : [ "none", "all" ],
+            "default" : "none"
           },
           "host_pause_stop_recording" : {
             "type" : "boolean",
@@ -18908,8 +18914,8 @@
             "type" : "integer",
             "description" : "Registration type. Used for recurring meeting with fixed time only. \n `1` Attendees register once and can attend any of the occurrences.  \n `2` Attendees need to register for each occurrence to attend.  \n `3` Attendees register once and can choose one or more occurrences to attend.",
             "example" : 1,
-            "default" : 1,
             "enum" : [ 1, 2, 3 ],
+            "default" : 1,
             "x-enum-descriptions" : [ "Attendees register once and can attend any of the occurrences", "Attendees need to register for each occurrence to attend", "Attendees register once and can choose one or more occurrences to attend" ]
           },
           "show_share_button" : {
@@ -19516,8 +19522,8 @@
             "type" : "integer",
             "description" : "The type of meeting.\n* `1` - An instant meeting. \n* `2` - A scheduled meeting. \n* `3` - A recurring meeting with no fixed time. \n* `8` - A recurring meeting with fixed time. \n* `10` - A screen share only meeting.",
             "example" : 2,
-            "default" : 2,
-            "enum" : [ 1, 2, 3, 8, 10 ]
+            "enum" : [ 1, 2, 3, 8, 10 ],
+            "default" : 2
           }
         },
         "description" : "The base meeting object."
@@ -20109,8 +20115,8 @@
             "type" : "integer",
             "description" : "`0` - Automatically approve.  \n `1` - Manually approve.  \n `2` - No registration required.",
             "example" : 0,
-            "default" : 2,
             "enum" : [ 0, 1, 2 ],
+            "default" : 2,
             "x-enum-descriptions" : [ "Automatically Approve", "Manually Approve", "No Registration Required" ]
           },
           "attendees_and_panelists_reminder_email_notification" : {
@@ -20120,8 +20126,8 @@
             "type" : "string",
             "description" : "Determine how participants can join the audio portion of the webinar.",
             "example" : "telephony",
-            "default" : "both",
             "enum" : [ "both", "telephony", "voip", "thirdParty" ],
+            "default" : "both",
             "x-enum-descriptions" : [ "Both Telephony and VoIP", "Telephony only", "VoIP only", "Third party audio conference" ]
           },
           "audio_conference_info" : {
@@ -20149,8 +20155,8 @@
             "type" : "string",
             "description" : "Automatic recording. \n `local` - Record on local.  \n `cloud` -  Record on cloud.  \n `none` - Disabled.",
             "example" : "cloud",
-            "default" : "none",
             "enum" : [ "local", "cloud", "none" ],
+            "default" : "none",
             "x-enum-descriptions" : [ "Record to local device", "Record to cloud", "No Recording" ]
           },
           "close_registration" : {
@@ -20302,8 +20308,8 @@
             "type" : "integer",
             "description" : "Registration types. Only used for recurring webinars with a fixed time.  \n `1` - Attendees register once and can attend any of the webinar sessions.  \n `2` - Attendees need to register for each session in order to attend.  \n `3` - Attendees register once and can choose one or more sessions to attend.",
             "example" : 1,
-            "default" : 1,
             "enum" : [ 1, 2, 3 ],
+            "default" : 1,
             "x-enum-descriptions" : [ "Attendees register once and can attend any of the occurrences", "Attendees need to register for each occurrence to attend", "Attendees register once and can choose one or more occurrences to attend" ]
           },
           "send_1080p_video_to_attendees" : {
@@ -21449,8 +21455,8 @@
               "type" : "integer",
               "description" : "The webinar type. \n* `5` - A webinar. \n* `6` - A recurring webinar without a fixed time. \n* `9` - A recurring webinar with a fixed time.",
               "example" : 9,
-              "default" : 5,
-              "enum" : [ 5, 6, 9 ]
+              "enum" : [ 5, 6, 9 ],
+              "default" : 5
             },
             "uuid" : {
               "type" : "string",
@@ -21864,8 +21870,8 @@
             "type" : "integer",
             "description" : "Webinar types.\n `5` - Webinar.  \n `6` - Recurring webinar with no fixed time.  \n `9` - Recurring webinar with a fixed time.",
             "example" : 5,
-            "default" : 5,
             "enum" : [ 5, 6, 9 ],
+            "default" : 5,
             "x-enum-descriptions" : [ "Webinar", "Recurring webinar with no fixed time", "Recurring webinar with fixed time" ]
           },
           "is_simulive" : {
@@ -21996,8 +22002,8 @@
             "type" : "string",
             "description" : "This field is required if you're scheduling a recurring meeting of type `2` to state which days of the week the meeting should repeat.   \n    \n  The value for this field could be a number between `1` to `7` in string format. For instance, if the meeting should recur on Sunday, provide `1` as this field's value.  \n   \n  **Note** To have the meeting occur on multiple days of a week, provide comma separated values for this field. For instance, if the meeting should recur on Sundays and Tuesdays provide `1,3` as this field's value.\n\n\n `1`  - Sunday.   \n `2` - Monday.  \n `3` - Tuesday.  \n `4` -  Wednesday.  \n `5` -  Thursday.  \n `6` - Friday.  \n `7` - Saturday.",
             "example" : "1",
-            "default" : "1",
-            "enum" : [ "1", "2", "3", "4", "5", "6", "7" ]
+            "enum" : [ "1", "2", "3", "4", "5", "6", "7" ],
+            "default" : "1"
           }
         },
         "description" : "Recurrence object. Use this object only for a meeting with type `8`, a recurring meeting with a fixed time. "
@@ -22126,8 +22132,8 @@
             "type" : "string",
             "description" : "This field is required if you're scheduling a recurring meeting of type `2`, to state which days of the week the meeting should repeat.   \n\nThiw field's value could be a number between `1` to `7` in string format. For instance, if the meeting should recur on Sunday, provide `1` as this field's value.  \n   \n  **Note** If you would like the meeting to occur on multiple days of a week, you should provide comma separated values for this field. For instance, if the meeting should recur on Sundays and Tuesdays provide `1,3` as this field's value.\n\n   \n `1`  - Sunday.   \n `2` - Monday.  \n `3` - Tuesday.  \n `4` -  Wednesday.  \n `5` -  Thursday.  \n `6` - Friday.  \n `7` - Saturday.",
             "example" : "1",
-            "default" : "1",
-            "enum" : [ "1", "2", "3", "4", "5", "6", "7" ]
+            "enum" : [ "1", "2", "3", "4", "5", "6", "7" ],
+            "default" : "1"
           }
         },
         "description" : "Recurrence object. Use this object only for a meeting with type `8`, a recurring meeting with fixed time. "
@@ -22185,8 +22191,8 @@
             "type" : "string",
             "description" : "The livestream's closed caption type for this session.\r\n* `burnt-in` - Burnt in captions.\r\n* `embedded` - Embedded captions.\r\n* `off` - Turn off captions.",
             "example" : "burnt-in",
-            "default" : "burnt-in",
-            "enum" : [ "burnt-in", "embedded", "off" ]
+            "enum" : [ "burnt-in", "embedded", "off" ],
+            "default" : "burnt-in"
           }
         },
         "description" : "Update the live stream session's settings. **Only** settings for a stopped live stream can be updated."
@@ -22250,8 +22256,8 @@
             "type" : "string",
             "description" : "The permission levels for users to access the whiteboard. \n* `editor` - Users with link access can edit the board. \n* `commenter` - Users with link access can comment on the board. \n* `viewer` - Users with link access can view the board.",
             "example" : "editor",
-            "default" : "editor",
-            "enum" : [ "editor", "commenter", "viewer" ]
+            "enum" : [ "editor", "commenter", "viewer" ],
+            "default" : "editor"
           }
         }
       },
@@ -22463,8 +22469,8 @@
             "type" : "integer",
             "description" : "The default value is `2`. To enable registration required, set the approval type to `0` or `1`.  Values include:  \n \n\n`0` - Automatically approve.  \n `1` - Manually approve.  \n `2` - No registration required.",
             "example" : 0,
-            "default" : 2,
             "enum" : [ 0, 1, 2 ],
+            "default" : 2,
             "x-enum-descriptions" : [ "Automatically Approve", "Manually Approve", "No Registration Required" ]
           },
           "attendees_and_panelists_reminder_email_notification" : {
@@ -22474,8 +22480,8 @@
             "type" : "string",
             "description" : "Determine how participants can join the audio portion of the meeting.(Not supported for simulive webinar.)",
             "example" : "telephony",
-            "default" : "both",
             "enum" : [ "both", "telephony", "voip", "thirdParty" ],
+            "default" : "both",
             "x-enum-descriptions" : [ "Both Telephony and VoIP", "Telephony only", "VoIP only", "Third party audio conference" ]
           },
           "audio_conference_info" : {
@@ -22498,8 +22504,8 @@
             "type" : "string",
             "description" : "Automatic recording. Not supported for simulive webinar.   \n `local` - Record on local.  \n `cloud` -  Record on cloud.  \n `none` - Disabled.",
             "example" : "cloud",
-            "default" : "none",
             "enum" : [ "local", "cloud", "none" ],
+            "default" : "none",
             "x-enum-descriptions" : [ "Record to local device", "Record to cloud", "No Recording" ]
           },
           "close_registration" : {
@@ -22644,8 +22650,8 @@
             "type" : "integer",
             "description" : "Registration types. Only used for recurring webinars with a fixed time.  \n `1` - Attendees register once and can attend any of the webinar sessions.  \n `2` - Attendees need to register for each session in order to attend.  \n `3` - Attendees register once and can choose one or more sessions to attend.",
             "example" : 1,
-            "default" : 1,
             "enum" : [ 1, 2, 3 ],
+            "default" : 1,
             "x-enum-descriptions" : [ "Attendees register once and can attend any of the occurrences", "Attendees need to register for each occurrence to attend", "Attendees register once and can choose one or more occurrences to attend" ]
           },
           "send_1080p_video_to_attendees" : {
@@ -23138,6 +23144,11 @@
             "type" : "string",
             "format" : "string",
             "example" : "https://example.com/j/11111"
+          },
+          "status" : {
+            "type" : "string",
+            "description" : "Registration status of the registrant",
+            "example" : "approved"
           }
         }
       },
@@ -24210,8 +24221,8 @@
             "type" : "string",
             "description" : "This field is required **if you're scheduling a recurring meeting of type** `2` to state the days of the week when the meeting should repeat.\n \n  This field's value could be a number between `1` to `7` in string format. For instance, if the meeting should recur on Sunday, provide `1` as this field's value.  \n   \n  **Note:** If you would like the meeting to occur on multiple days of a week, provide comma separated values for this field. For instance, if the meeting should recur on Sundays and Tuesdays, provide `1,3` as this field's value.\n\n   \n `1`  - Sunday.   \n `2` - Monday.  \n `3` - Tuesday.  \n `4` -  Wednesday.  \n `5` -  Thursday.  \n `6` - Friday.  \n `7` - Saturday.",
             "example" : "1",
-            "default" : "1",
-            "enum" : [ "1", "2", "3", "4", "5", "6", "7" ]
+            "enum" : [ "1", "2", "3", "4", "5", "6", "7" ],
+            "default" : "1"
           }
         },
         "description" : "Recurrence object. Use this object only for a meeting with type `8`, a recurring meeting with fixed time. "
@@ -24469,15 +24480,15 @@
             "type" : "string",
             "description" : "The layout of the meeting's livestream. Use this field if you pass the `start` or `mode` value for the `action` field.\r\n* `follow_host` - Follow host view.\r\n* `gallery_view` - Gallery view.\r\n* `speaker_view` - Speaker view.",
             "example" : "follow_host",
-            "default" : "follow_host",
-            "enum" : [ "follow_host", "gallery_view", "speaker_view" ]
+            "enum" : [ "follow_host", "gallery_view", "speaker_view" ],
+            "default" : "follow_host"
           },
           "close_caption" : {
             "type" : "string",
             "description" : "The livestream's closed caption type for this session. Use this field if you pass the `start` or `mode` value for the `action` field.\r\n* `burnt-in` - Burnt in captions.\r\n* `embedded` - Embedded captions.\r\n* `off` - Turn off captions.",
             "example" : "burnt-in",
-            "default" : "burnt-in",
-            "enum" : [ "burnt-in", "embedded", "off" ]
+            "enum" : [ "burnt-in", "embedded", "off" ],
+            "default" : "burnt-in"
           }
         },
         "description" : "The meeting's livestreaming settings."
@@ -24789,8 +24800,8 @@
             "type" : "integer",
             "description" : "Enable registration and set approval for the registration. Note that this feature requires the host to be of **Licensed** user type. **Registration cannot be enabled for a basic user.**   \n   \n \n\n`0` - Automatically approve.  \n `1` - Manually approve.  \n `2` - No registration required.",
             "example" : 0,
-            "default" : 2,
             "enum" : [ 0, 1, 2 ],
+            "default" : 2,
             "x-enum-descriptions" : [ "Automatically Approve", "Manually Approve", "No Registration Required" ]
           },
           "approved_or_denied_countries_or_regions" : {
@@ -24800,8 +24811,8 @@
             "type" : "string",
             "description" : "Determine how participants can join the audio portion of the meeting.  \n `both` - Both Telephony and VoIP.  \n `telephony` - Telephony only.  \n `voip` - VoIP only.  \n `thirdParty` - Third party audio conference.",
             "example" : "telephony",
-            "default" : "both",
             "enum" : [ "both", "telephony", "voip", "thirdParty" ],
+            "default" : "both",
             "x-enum-descriptions" : [ "Both Telephony and VoIP", "Telephony only", "VoIP only", "Third party audio conference" ]
           },
           "audio_conference_info" : {
@@ -24836,8 +24847,8 @@
             "type" : "string",
             "description" : "The automatic recording settings. \n* `local` - Record the meeting locally. \n* `cloud` - Record the meeting to the cloud. \n* `none` - Auto-recording disabled.\n\nThis value defaults to `none`.",
             "example" : "cloud",
-            "default" : "none",
-            "enum" : [ "local", "cloud", "none" ]
+            "enum" : [ "local", "cloud", "none" ],
+            "default" : "none"
           },
           "host_pause_stop_recording" : {
             "type" : "boolean",
@@ -25007,8 +25018,8 @@
             "type" : "integer",
             "description" : "Registration type. Used for recurring meeting with fixed time only.\n `1` - Attendees register once and can attend any of the occurrences.  \n `2` - Attendees need to register for each occurrence to attend.  \n `3` - Attendees register once and can choose one or more occurrences to attend.",
             "example" : 1,
-            "default" : 1,
             "enum" : [ 1, 2, 3 ],
+            "default" : 1,
             "x-enum-descriptions" : [ "Attendees register once and can attend any of the occurrences", "Attendees need to register for each occurrence to attend", "Attendees register once and can choose one or more occurrences to attend" ]
           },
           "show_share_button" : {
@@ -25138,8 +25149,8 @@
             "type" : "string",
             "description" : "Which recording options are unavailable to the in-meeting host through the Zoom client.\n\n* `none` - All recording options are available to the host. This is the default. \n* `all` - All recording options are unavailable to the host. \n\nNot supported when `auto_recording` is set to `local`.",
             "example" : "all",
-            "default" : "none",
-            "enum" : [ "none", "all" ]
+            "enum" : [ "none", "all" ],
+            "default" : "none"
           }
         },
         "description" : "Meeting settings."
@@ -25548,8 +25559,8 @@
             "type" : "integer",
             "description" : "The type of meeting. \n* `1` - An instant meeting. \n* `2` - A scheduled meeting. \n* `3` - A recurring meeting with no fixed time. \n* `4` - A PMI Meeting. \n* `8` - A recurring meeting with fixed time. \n* `10` - A screen share only meeting.",
             "example" : 2,
-            "default" : 2,
-            "enum" : [ 1, 2, 3, 4, 8, 10 ]
+            "enum" : [ 1, 2, 3, 4, 8, 10 ],
+            "default" : 2
           },
           "dynamic_host_key" : {
             "type" : "string",
@@ -26232,6 +26243,11 @@
             "description" : "The URL that an approved registrant can use to join the meeting or webinar.",
             "format" : "string",
             "example" : "https://example.com/j/11111"
+          },
+          "status" : {
+            "type" : "string",
+            "description" : "The status of the registrant's registration.\n  `approved` - User has been successfully approved for the webinar.  \n  `pending` -  The registration is still pending.  \n  `denied` - User has been denied from joining the webinar.",
+            "example" : "approved"
           }
         }
       },
@@ -26984,8 +27000,8 @@
             "type" : "integer",
             "description" : "Enable meeting registration approval.\n* `0` - Automatically approve registration.\n* `1` - Manually approve registration.\n* `2` - No registration required.\n\nThis value defaults to `2`.",
             "example" : 2,
-            "default" : 2,
             "enum" : [ 0, 1, 2 ],
+            "default" : 2,
             "x-enum-descriptions" : [ "Automatically approve registration.", "Manually approve registration.", "No registration required." ]
           },
           "approved_or_denied_countries_or_regions" : {
@@ -26995,8 +27011,8 @@
             "type" : "string",
             "description" : "How participants join the audio portion of the meeting.\n* `both` - Both telephony and VoIP. \n* `telephony` - Telephony only. \n* `voip` - VoIP only. \n* `thirdParty` - Third party audio conference.",
             "example" : "telephony",
-            "default" : "both",
             "enum" : [ "both", "telephony", "voip", "thirdParty" ],
+            "default" : "both",
             "x-enum-descriptions" : [ "Telephony and VoIP.", "Telephony only.", "VoIP only.", "Third party audio conference." ]
           },
           "audio_conference_info" : {
@@ -27026,8 +27042,8 @@
             "type" : "string",
             "description" : "The automatic recording settings. \n* `local` - Record the meeting locally. \n* `cloud` - Record the meeting to the cloud. \n* `none` - Auto-recording disabled.\n\nThis value defaults to `none`.",
             "example" : "cloud",
-            "default" : "none",
-            "enum" : [ "local", "cloud", "none" ]
+            "enum" : [ "local", "cloud", "none" ],
+            "default" : "none"
           },
           "host_pause_stop_recording" : {
             "type" : "boolean",
@@ -27170,8 +27186,8 @@
             "type" : "integer",
             "description" : "The meeting's registration type. \n* `1` - Attendees register once and can attend any meeting occurrence. \n* `2` - Attendees must register for each meeting occurrence. \n* `3` - Attendees register once and can select one or more meeting occurrences to attend.\n\nThis field is only for recurring meetings with fixed times (`8`). This value defaults to `1`.",
             "example" : 1,
-            "default" : 1,
             "enum" : [ 1, 2, 3 ],
+            "default" : 1,
             "x-enum-descriptions" : [ "Attendees register once and can attend any meeting occurrence.", "Attendees must register for each meeting occurrence.", "Attendees register once and can select one or more meeting occurrences to attend." ]
           },
           "show_share_button" : {
@@ -27319,8 +27335,8 @@
             "type" : "string",
             "description" : "Which recording options are unavailable to the in-meeting host through the Zoom client.\n\n* `none` - All recording options are available to the host. This is the default. \n* `all` - All recording options are unavailable to the host. \n\nNot supported when `auto_recording` is set to `local`.",
             "example" : "all",
-            "default" : "none",
-            "enum" : [ "none", "all" ]
+            "enum" : [ "none", "all" ],
+            "default" : "none"
           }
         },
         "description" : "Information about the meeting's settings."
@@ -27390,8 +27406,8 @@
             "type" : "string",
             "description" : "This field is required **if you're scheduling a recurring meeting of type** `2` to state which day(s) of the week the meeting should repeat.   \n    \n  The value for this field could be a number between `1` to `7` in string format. For instance, if the meeting should recur on Sunday, provide `1` as the value of this field.  \n   \n  **Note:** If you would like the meeting to occur on multiple days of a week, you should provide comma separated values for this field. For instance, if the meeting should recur on Sundays and Tuesdays provide `1,3` as the value of this field.\n\n   \n `1`  - Sunday.   \n `2` - Monday.  \n `3` - Tuesday.  \n `4` -  Wednesday.  \n `5` -  Thursday.  \n `6` - Friday.  \n `7` - Saturday.",
             "example" : "1",
-            "default" : "1",
-            "enum" : [ "1", "2", "3", "4", "5", "6", "7" ]
+            "enum" : [ "1", "2", "3", "4", "5", "6", "7" ],
+            "default" : "1"
           }
         },
         "description" : "Recurrence object. Use this object only for a meeting with type `8`, a recurring meeting with fixed time. "
@@ -28250,8 +28266,8 @@
             "type" : "integer",
             "description" : "The type of poll: \n* `1` &mdash; Poll. \n* `2` &mdash; Advanced Poll. This feature must be enabled in your Zoom account. \n* `3` &mdash; Quiz. This feature must be enabled in your Zoom account. \n\n This value defaults to `1`.",
             "example" : 2,
-            "default" : 1,
-            "enum" : [ 1, 2, 3 ]
+            "enum" : [ 1, 2, 3 ],
+            "default" : 1
           },
           "questions" : {
             "minLength" : 1,
@@ -28314,6 +28330,11 @@
             "items" : {
               "$ref" : "#/components/schemas/InlineResponse20048Meetings"
             }
+          },
+          "next_page_token" : {
+            "type" : "string",
+            "description" : "The next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceeds the current page size. The expiration period for this token is 15 minutes",
+            "example" : "w7587w4eiyfsudgk"
           },
           "to" : {
             "type" : "string",
@@ -28397,6 +28418,11 @@
             "type" : "string",
             "description" : "The cloud recording's password.\nInclude fields in the response. The password field requires the user role of the authorized account to enable the `View Recording Content` permission.",
             "example" : "981651"
+          },
+          "recording_play_passcode" : {
+            "type" : "string",
+            "description" : "The cloud recording's passcode to be used in the URL. Directly splice this recording's passcode in `play_url` or `share_url` with `?pwd=` to access and play. Example: 'https://zoom.us/rec/share/**************?pwd=yNYIS408EJygs7rE5vVsJwXIz4-VW7MH'",
+            "example" : "yNYIS408EJygs7rE5vVsJwXIz4-VW7MH"
           }
         }
       },
@@ -28433,8 +28459,8 @@
             "type" : "string",
             "description" : "Type of answer.",
             "example" : "default",
-            "default" : "default",
             "enum" : [ "default", "host_answered_publicly", "host_answered_privately", "participant_commented", "host_answered" ],
+            "default" : "default",
             "x-enum-description" : [ "default - default value, does not represent any type", "host_answered - deprecated, split into host_answered_publicly and host_answered_privately", "host_answered_publicly - host answered the question publicly", "host_answered_privately - host answered the question privately", "participant_commented - comment from the participant" ]
           }
         }
@@ -28659,8 +28685,8 @@
             "type" : "string",
             "description" : "The time unit for delayed playback\n`second` - The time unit for delayed playback is seconds.\n`minute` - The time unit for delayed playback is minutes.",
             "example" : "second",
-            "default" : "second",
-            "enum" : [ "second", "minute" ]
+            "enum" : [ "second", "minute" ],
+            "default" : "second"
           }
         },
         "description" : "{\"enable\":false,\"time\":0,\"timeunit\":\"second\"}"
@@ -29003,8 +29029,8 @@
             "type" : "string",
             "description" : "Type of answer.",
             "example" : "default",
-            "default" : "default",
             "enum" : [ "default", "host_answered_publicly", "host_answered_privately", "participant_commented", "host_answered" ],
+            "default" : "default",
             "x-enum-description" : [ "default - default value, does not represent any type", "host_answered - deprecated, split into host_answered_publicly and host_answered_privately", "host_answered_publicly - host answered the question publicly", "host_answered_privately - host answered the question privately", "participant_commented - comment from the participant" ]
           }
         }
@@ -29346,8 +29372,8 @@
             "type" : "integer",
             "description" : "Webinar types.  \n `5` - Webinar.  \n `6` - Recurring webinar with no fixed time.  \n `9` - Recurring webinar with a fixed time.",
             "example" : 5,
-            "default" : 5,
             "enum" : [ 5, 6, 9 ],
+            "default" : 5,
             "x-enum-descriptions" : [ "Webinar", "Recurring webinar with no fixed time", "Recurring webinar with fixed time" ]
           },
           "is_simulive" : {
@@ -29454,8 +29480,8 @@
             "type" : "integer",
             "description" : "The type of meeting. \n* `1` - An instant meeting. \n* `2` - A scheduled meeting. \n* `3` - A recurring meeting with no fixed time. \n* `8` - A recurring meeting with fixed time. \n* `10` - A screen share only meeting.",
             "example" : 2,
-            "default" : 2,
-            "enum" : [ 1, 2, 3, 8, 10 ]
+            "enum" : [ 1, 2, 3, 8, 10 ],
+            "default" : 2
           }
         },
         "description" : "Meeting object."
@@ -30295,6 +30321,11 @@
             "description" : "The URL that an approved registrant can use to join the meeting or webinar.",
             "format" : "string",
             "example" : "https://example.com/j/11111"
+          },
+          "status" : {
+            "type" : "string",
+            "description" : "The status of the registrant's registration.   \n  `approved` - User has been successfully approved for the webinar.  \n  `pending` -  The registration is still pending.  \n  `denied` - User has been denied from joining the webinar.",
+            "example" : "approved"
           }
         }
       },
@@ -30535,8 +30566,8 @@
               "type" : "integer",
               "description" : "The webinar type. \n* `5` - A webinar. \n* `6` - A recurring webinar without a fixed time. \n* `9` - A recurring webinar with a fixed time.",
               "example" : 9,
-              "default" : 5,
-              "enum" : [ 5, 6, 9 ]
+              "enum" : [ 5, 6, 9 ],
+              "default" : 5
             },
             "uuid" : {
               "type" : "string",

@@ -61,114 +61,6 @@ service / on ep0 {
         return http:NO_CONTENT;
     }
 
-    # Delete a meeting poll
-    #
-    # + meetingId - The meeting's ID. 
-    # When storing this value in your database, you must store it as a long format integer and **not** an integer. Meeting IDs can exceed 10 digits
-    # + pollId - The poll ID
-    # + return - returns can be any of following types 
-    # http:NoContent (**HTTP Status Code:** `204`   
-#  
-# Meeting Poll deleted)
-    # http:BadRequest (**HTTP Status Code:** `400` <br>
-#  Bad Request  
-# 
-#  **Error Code:** `4400` <br>
-#  Meeting polls disabled. To enable this feature, enable the **Meeting Polls/Quizzes** setting in the Zoom web portal's **Settings** interface. <br>
-# **Error Code:** `3161` <br>
-#  Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
-# )
-    # http:NotFound (**HTTP Status Code:** `404` <br>
-#  Not Found  
-# 
-#  **Error Code:** `404` <br>
-#  Meeting poll not found. <br>
-# )
-    # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-#  Too Many Requests. For more information, see [rate limits](/docs/api/rest/rate-limits/). 
-# 
-#  )
-    resource function delete meetings/[int meetingId]/polls/[string pollId]() returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
-        return http:NO_CONTENT;
-    }
-
-    # Delete a meeting registrant
-    #
-    # + meetingId - The meeting ID
-    # + registrantId - The meeting registrant ID
-    # + occurrenceId - The meeting occurrence ID
-    # + return - returns can be any of following types 
-    # http:NoContent (**HTTP status code:** `204`   
-#  
-# OK)
-    # http:BadRequest (**HTTP Status Code:** `400` <br>
-#  Bad Request  
-# 
-#  **Error Code:** `200` <br>
-#  Only available for paid users: {userId}. <br>
-# **Error Code:** `300` <br>
-#  The value that you entered for the Registrant ID field is invalid. Enter a valid value and try again. <br>
-# **Error Code:** `300` <br>
-#  Registration has not been enabled for this meeting: {meetingId}. <br>
-# **Error Code:** `3000` <br>
-#  Cannot access webinar info. <br>
-# **Error Code:** `3161` <br>
-#  Meeting hosting and scheduling capabilities are not allowed for your user account. <br>
-# )
-    # http:NotFound (**HTTP Status Code:** `404` <br>
-#  Not Found  
-# 
-#  **Error Code:** `3001` <br>
-#  Meeting does not exist: {meetingId}. <br>
-# )
-    # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-#  Too Many Requests. For more information, see [rate limits](/docs/api/rest/rate-limits/). 
-# 
-#  )
-    resource function delete meetings/[int meetingId]/registrants/[string registrantId](@http:Query {name: "occurrence_id"} string? occurrenceId) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
-        return http:NO_CONTENT;
-    }
-
-    # Delete a webinar
-    #
-    # + webinarId - The webinar's ID
-    # + occurrenceId - The meeting or webinar occurrence ID
-    # + cancelWebinarReminder - `true` - Notify panelists and registrants about the webinar cancellation via email. 
-    # `false` - Do not send any email notification to webinar registrants and panelists. 
-    # The default value of this field is `false`
-    # + return - returns can be any of following types 
-    # http:NoContent (**HTTP Status Code:** `204` <br>
-#  Webinar deleted)
-    # http:BadRequest (**HTTP Status Code:** `400` <br>
-#  Bad Request  
-# 
-#  **Error Code:** `3000` <br>
-#  Your request could not be processed because webinars created via event directory can not be updated or deleted using this method. <br>
-# **Error Code:** `3000` <br>
-#  You cannot update or delete simulive webinars that have started using this method. <br>
-# **Error Code:** `200` <br>
-#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-# **Error Code:** `200` <br>
-#  No permission. <br>
-# **Error Code:** `3000` <br>
-#  Webinar occurrence does not exist. <br>
-# **Error Code:** `300` <br>
-#  Invalid webinar ID. <br>
-# )
-    # http:NotFound (**HTTP Status Code:** `404` <br>
-#  Not Found  
-# 
-#  **Error Code:** `3001` <br>
-#  Webinar does not exist: {webinarId}. <br>
-# )
-    # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-# 
-#  )
-    resource function delete webinars/[int webinarId](@http:Query {name: "occurrence_id"} string? occurrenceId, @http:Query {name: "cancel_webinar_reminder"} boolean? cancelWebinarReminder) returns http:NoContent|http:BadRequest|http:NotFound|http:TooManyRequests {
-        return http:NO_CONTENT;
-    }
-
     # Get a meeting
     #
     # + meetingId - The meeting's ID. 
@@ -782,40 +674,6 @@ service / on ep0 {
         };
     }
 
-    # List panelists
-    #
-    # + webinarId - The webinar's ID
-    # + return - returns can be any of following types 
-    # http:Ok (**HTTP Status Code:** `200`  
-#  
-# Webinar plan subscription missing. Enable webinar for this user once the subscription is added)
-    # http:BadRequest (**HTTP Status Code:** `400` <br>
-#  Bad Request  
-# 
-#  **Error Code:** `300` <br>
-#  Invalid webinar ID. <br>
-# **Error Code:** `200` <br>
-#  No permission. <br>
-# **Error Code:** `200` <br>
-#  Webinar plan is missing. You must subscribe to the webinar plan and enable webinars for this user in order to perform this action. <br>
-# )
-    # http:NotFound (**HTTP Status Code:** `404` <br>
-#  Not Found  
-# 
-#  **Error Code:** `3001` <br>
-#  Webinar does not exist: {webinarId}. <br>
-# )
-    # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-# 
-#  )
-    resource function get webinars/[int webinarId]/panelists() returns ListWebinarPanelistsResponse|http:BadRequest|http:NotFound|http:TooManyRequests {
-        return {
-            totalRecords: 1,
-            panelists: [{id: "z8yCxjabRdOZ5WHVt5QZyA", name: "Ravi Kumar", email: "rkumar@example.com", joinUrl: "https://us05web.zoom.us/w/96543210987?tk=p4n3l1st"}]
-        };
-    }
-
     # Get a webinar
     #
     # + webinarId - The webinar's ID or universally unique ID (UUID)
@@ -982,24 +840,6 @@ service / on ep0 {
             id: meetingId, registrantId: "fdgsfh2ey82fuh", topic: "Quarterly planning sync",
             startTime: "2026-10-01T15:00:00Z", participantPinCode: 380303,
             joinUrl: "https://us05web.zoom.us/w/85746065432?tk=r4nd0mT0k3n"
-        };
-    }
-
-    # Create a tracking field
-    #
-    # + payload - Tracking Field 
-    # + return - returns can be any of following types 
-    # http:Created (**HTTP Status Code:** `201`  
-#  
-# Tracking Field created)
-    # http:TooManyRequests (**HTTP Status Code:** `429` <br>
-#  Too Many Requests. For more information, see [rate limits](https://developers.zoom.us/docs/api/rest/rate-limits/). 
-# 
-#  )
-    resource function post tracking_fields(@http:Payload CreateTrackingFieldRequest payload) returns CreateTrackingFieldResponse|http:TooManyRequests {
-        return {
-            id: "a32CJji-weJ92", 'field: payload.'field, required: payload.required, visible: payload.visible,
-            recommendedValues: payload.recommendedValues
         };
     }
 

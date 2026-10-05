@@ -97,13 +97,11 @@ Items 1, 5, 6 and 7 are applied to `docs/spec/openapi.json` before `bal openapi 
 - **Original**: The `download_restriction_reason` field in `GetMeetingTranscriptResponse` was `not nullable`.
 - **Updated**: The `download_restriction_reason` field has been updated to be `nullable`.
 - **Reason**: The API can return a null value for this field.
-<!-- auto-generated -->
 
 10. Change `GetMeetingTranscriptResponse download_url` to nullable
 - **Original**: The `download_url` field in `GetMeetingTranscriptResponse` was `not nullable`.
 - **Updated**: The `download_url` field has been updated to be `nullable`.
 - **Reason**: The API can return a null value for this field.
-<!-- auto-generated -->
 
 ## OpenAPI cli command
 

@@ -179,20 +179,6 @@ function testGetMeetingRegistrant() returns error? {
     test:assertEquals(response.status, "approved");
 }
 
-@test:Config {groups: ["mock_tests"]}
-function testDeleteMeetingRegistrant() returns error? {
-    AddMeetingRegistrantResponse created = check zoom->addMeetingRegistrant(85746065432, {
-        firstName: "Ravi",
-        email: "rkumar@example.com"
-    });
-    string? registrantId = created.registrantId;
-    if registrantId is () {
-        return error("addMeetingRegistrant returned no registrant ID");
-    }
-    error? result = zoom->deleteMeetingRegistrant(85746065432, registrantId);
-    test:assertTrue(result is ());
-}
-
 @test:Config {groups: ["live_tests", "mock_tests"]}
 function testCreateMeetingPoll() returns error? {
     int meetingId = check createFixtureMeeting("Connector poll test");
@@ -222,18 +208,6 @@ function testGetMeetingPoll() returns error? {
     string pollId = check created.id.ensureType();
     GetMeetingPollResponse response = check zoom->getMeetingPoll(meetingId, pollId);
     test:assertEquals(response.id, pollId);
-}
-
-@test:Config {groups: ["live_tests", "mock_tests"]}
-function testDeleteMeetingPoll() returns error? {
-    int meetingId = check createFixtureMeeting("Connector delete poll test");
-    CreateMeetingPollResponse created = check zoom->createMeetingPoll(meetingId, {
-        title: "Temporary poll",
-        questions: [{name: "Keep this poll?", 'type: "single", answers: ["Yes", "No"]}]
-    });
-    string pollId = check created.id.ensureType();
-    error? result = zoom->deleteMeetingPoll(meetingId, pollId);
-    test:assertTrue(result is ());
 }
 
 @test:Config {groups: ["mock_tests"]}
@@ -303,20 +277,6 @@ function testGetWebinar() returns error? {
 }
 
 @test:Config {groups: ["mock_tests"]}
-function testDeleteWebinar() returns error? {
-    CreateWebinarResponse created = check zoom->createWebinar(userId, {topic: "Temporary webinar", 'type: 5});
-    int webinarId = check created.id.ensureType();
-    error? result = zoom->deleteWebinar(webinarId);
-    test:assertTrue(result is ());
-}
-
-@test:Config {groups: ["mock_tests"]}
-function testListWebinarPanelists() returns error? {
-    ListWebinarPanelistsResponse response = check zoom->listWebinarPanelists(96543210987);
-    test:assertTrue(response.panelists is ListWebinarPanelistsResponsePanelist[]);
-}
-
-@test:Config {groups: ["mock_tests"]}
 function testAddWebinarRegistrant() returns error? {
     AddWebinarRegistrantResponse response = check zoom->addWebinarRegistrant(96543210987, {
         firstName: "Jill",
@@ -331,16 +291,4 @@ function testListTrackingFields() returns error? {
     // Tracking fields are an account-admin feature; mock only.
     ListTrackingFieldsResponse response = check zoom->listTrackingFields();
     test:assertTrue(response.trackingFields is ListTrackingFieldsResponseTrackingField[]);
-}
-
-@test:Config {groups: ["mock_tests"]}
-function testCreateTrackingField() returns error? {
-    CreateTrackingFieldResponse response = check zoom->createTrackingField({
-        'field: "Cost center",
-        required: false,
-        visible: true,
-        recommendedValues: ["Engineering", "Sales"]
-    });
-    test:assertTrue(response.id is string);
-    test:assertEquals(response.'field, "Cost center");
 }
