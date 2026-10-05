@@ -515,7 +515,6 @@ public type ListDevicesResponse record {
     # The next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceeds the current page size. The expiration period for this token is 15 minutes
     @jsondata:Name {value: "next_page_token"}
     string nextPageToken?;
-    # List of devices
     ListDevicesResponseDevice[] devices?;
     # The number of records returned within a single API call
     @jsondata:Name {value: "page_size"}
@@ -622,13 +621,11 @@ public type EnableSipPhoneResponse record {
     # The email address of the user to associate with the SIP Phone. Can add `.pc`, `.mobile`, `.pad` at the end of the email (for example, `user@example.com.mac`) to add accounts for different platforms for the same user
     @jsondata:Name {value: "user_email"}
     string userEmail?;
-    # Configuration of the tertiary SIP server
     @jsondata:Name {value: "server_3"}
     SipServer server3?;
     # The number to dial for checking voicemail
     @jsondata:Name {value: "voice_mail"}
     string voiceMail?;
-    # Configuration of the secondary SIP server
     @jsondata:Name {value: "server_2"}
     SipServer server2?;
     # The phone number associated with the user in the SIP account
@@ -655,7 +652,6 @@ public type AddMeetingAppRequest record {
     # The user IDs of the participants to share the app with. The `share_with` filter still applies
     @jsondata:Name {value: "user_ids"}
     AddMeetingAppRequestUseridsItemsString[] userIds?;
-    # Users the app is shared with
     @jsondata:Name {value: "share_with"}
     MeetingAppShareWith shareWith?;
     # Who the app is shared with.
@@ -879,7 +875,6 @@ public type UpdateMeetingSurveyRequest record {
     #  This value defaults to `true`
     @jsondata:Name {value: "show_in_the_browser"}
     boolean showInTheBrowser = true;
-    # Custom survey configuration
     @jsondata:Name {value: "custom_survey"}
     MeetingSurveyCustomSurvey customSurvey?;
     # The link to the third party meeting survey
@@ -1009,7 +1004,6 @@ public type GetWebinarResponseSettings record {
     # Whether the **Allow alternative hosts to add or edit polls** feature is enabled. This requires Zoom version 5.8.0 or higher
     @jsondata:Name {value: "alternative_host_update_polls"}
     boolean alternativeHostUpdatePolls?;
-    # Follow-up email notification settings for absentees
     @jsondata:Name {value: "follow_up_absentees_email_notification"}
     CreateWebinarSettingsFollowUpAbsenteesEmailNotification followUpAbsenteesEmailNotification?;
     # Whether to show the webinar's join information on the registration confirmation page. This setting is only applied to webinars with registration enabled
@@ -1018,10 +1012,8 @@ public type GetWebinarResponseSettings record {
     # List of global dial-in countries
     @jsondata:Name {value: "global_dial_in_countries"}
     string[] globalDialInCountries?;
-    # Q&A settings
     @jsondata:Name {value: "question_and_answer"}
     GetWebinarResponseSettingsQuestionAndAnswer questionAndAnswer?;
-    # Reminder email notification settings for attendees and panelists
     @jsondata:Name {value: "attendees_and_panelists_reminder_email_notification"}
     WebinarSettingsAttendeesAndPanelistsReminderEmailNotification attendeesAndPanelistsReminderEmailNotification?;
     # `0` - Automatically approve.  
@@ -1050,7 +1042,6 @@ public type GetWebinarResponseSettings record {
     # Webinar authentication option ID
     @jsondata:Name {value: "authentication_option"}
     string authenticationOption?;
-    # Sign language interpretation settings
     @jsondata:Name {value: "sign_language_interpretation"}
     WebinarSettingsSignLanguageInterpretation signLanguageInterpretation?;
     # Always send 1080p video to attendees
@@ -1113,7 +1104,6 @@ public type GetWebinarResponseSettings record {
     # Start video when the host joins the webinar
     @jsondata:Name {value: "host_video"}
     boolean hostVideo?;
-    # Language interpretation settings
     @jsondata:Name {value: "language_interpretation"}
     WebinarSettingsLanguageInterpretation languageInterpretation?;
     # Start video when panelists join webinar
@@ -1141,7 +1131,6 @@ public type GetWebinarResponseSettings record {
     # Require panelists to authenticate to join
     @jsondata:Name {value: "panelist_authentication"}
     boolean panelistAuthentication?;
-    # Follow-up email notification settings for attendees
     @jsondata:Name {value: "follow_up_attendees_email_notification"}
     WebinarSettingsFollowUpAttendeesEmailNotification followUpAttendeesEmailNotification?;
     # Whether to include guest's email addresses in webinars' attendee reports
@@ -1275,7 +1264,6 @@ public type CreateWebinarRequestSettings record {
     # Whether to allow the host and cohosts to fully control the mute state of participants. Not supported for simulive webinar. If not provided, the default value will be based on the user's setting. This option cannot be used together with `request_permission_to_unmute_participants`, only one of the two can be enabled at a time
     @jsondata:Name {value: "allow_host_control_participant_mute_state"}
     boolean allowHostControlParticipantMuteState?;
-    # Sign language interpretation settings
     @jsondata:Name {value: "sign_language_interpretation"}
     CreateWebinarSettingsSignLanguageInterpretation signLanguageInterpretation?;
     # Add additional webinar [data center regions](https://support.zoom.us/hc/en-us/articles/360042411451-Selecting-data-center-regions-for-hosted-meetings-and-webinars). Provide this value as an array of [country codes](/docs/api/references/abbreviations/#countries) for the countries available as data center regions in the [**Account Profile**](https://zoom.us/account/setting) interface but have been opted out of in the [user settings](https://zoom.us/profile).
@@ -1321,7 +1309,6 @@ public type CreateWebinarRequestSettings record {
     # Whether the **Allow alternative hosts to add or edit polls** feature is enabled. This requires Zoom version 5.8.0 or higher
     @jsondata:Name {value: "alternative_host_update_polls"}
     boolean alternativeHostUpdatePolls?;
-    # Follow-up email notification settings for absentees
     @jsondata:Name {value: "follow_up_absentees_email_notification"}
     CreateWebinarSettingsFollowUpAbsenteesEmailNotification followUpAbsenteesEmailNotification?;
     # Add audio watermark that identifies the participants. Not supported for simulive webinar. If not provided, the default value will be based on the user's setting
@@ -1354,13 +1341,11 @@ public type CreateWebinarRequestSettings record {
     # Restrict number of registrants for a webinar. By default, it is set to `0`. A `0` value means that the restriction option is disabled. Provide a number higher than 0 to restrict the webinar registrants by the that number
     @jsondata:Name {value: "registrants_restrict_number"}
     int registrantsRestrictNumber = 0;
-    # Q&A settings
     @jsondata:Name {value: "question_and_answer"}
     CreateWebinarRequestSettingsQuestionAndAnswer questionAndAnswer?;
     # Contact name for registration
     @jsondata:Name {value: "contact_name"}
     string contactName?;
-    # Reminder email notification settings for attendees and panelists
     @jsondata:Name {value: "attendees_and_panelists_reminder_email_notification"}
     CreateWebinarRequestSettingsAttendeesAndPanelistsReminderEmailNotification attendeesAndPanelistsReminderEmailNotification?;
     # Send email notifications to registrants about approval, cancellation, denial of the registration. The value of this field must be set to true in order to use the `registrants_confirmation_email` field
@@ -1389,7 +1374,6 @@ public type CreateWebinarRequestSettings record {
     # Start video when host joins webinar. Not supported for simulive webinar
     @jsondata:Name {value: "host_video"}
     boolean hostVideo?;
-    # Language interpretation settings
     @jsondata:Name {value: "language_interpretation"}
     CreateWebinarSettingsLanguageInterpretation languageInterpretation?;
     # Start video when panelists join webinar. Not supported for simulive webinar
@@ -1429,7 +1413,6 @@ public type CreateWebinarRequestSettings record {
     # Meeting authentication domains. This option allows you to specify the rule so that Zoom users whose email address contains a certain domain can join the webinar. You can either provide multiple comma-separated domains, use a wildcard for listing domains, or use both methods
     @jsondata:Name {value: "authentication_domains"}
     string authenticationDomains?;
-    # Follow-up email notification settings for attendees
     @jsondata:Name {value: "follow_up_attendees_email_notification"}
     CreateWebinarRequestSettingsFollowUpAttendeesEmailNotification followUpAttendeesEmailNotification?;
     # Whether to include guest's email addresses in webinars' attendee reports
@@ -1553,7 +1536,6 @@ public type GetWebinarResponse record {
     # You must provide the user ID of the host instead of the email address in the `userId` path parameter in order to use a template for scheduling a webinar
     @jsondata:Name {value: "template_id"}
     string templateId?;
-    # Delay settings for starting a simulive webinar
     @jsondata:Name {value: "simulive_delay_start"}
     GetWebinarResponseSimuliveDelayStart simuliveDelayStart?;
 };
@@ -1783,7 +1765,7 @@ public type ListMeetingsResponsePagination record {
 
 # Occurrence object. This object is only returned for recurring webinars
 public type CreateMeetingResponseOccurrence record {
-    # Duration of the occurrence, in minutes
+    # Duration
     int duration?;
     # Start time
     @jsondata:Name {value: "start_time"}
@@ -2045,9 +2027,9 @@ public type GetActiveHostsReportResponseDetailsUser record {
     int meetings?;
     # User department
     string dept?;
-    # Unique identifier of the user
+    # User ID
     string id?;
-    # Type of the user
+    # User type
     int 'type?;
     # User email
     string email?;
@@ -2294,7 +2276,7 @@ public type CreateH323DeviceRequest record {
     #  `yes` - yes.  
     #  `no` - no
     "auto"|"yes"|"no" encryption;
-    # IP address of the device
+    # Device IP
     string ip;
     # Device name
     @constraint:String {maxLength: 64}
@@ -2542,7 +2524,6 @@ public type ListPastMeetingQaResponse record {
     # The meeting's start time
     @jsondata:Name {value: "start_time"}
     string startTime?;
-    # List of questions
     ListPastMeetingQaResponseQuestion[] questions?;
     # [Meeting ID](https://support.zoom.us/hc/en-us/articles/201362373-What-is-a-Meeting-ID-): Unique identifier of the meeting in **long** format, represented as int64 data type in JSON, also known as the meeting number
     int id?;
@@ -2593,7 +2574,6 @@ public type GetMeetingSurveyResponse record {
     #  This value defaults to `true`
     @jsondata:Name {value: "show_in_the_browser"}
     boolean showInTheBrowser = true;
-    # Custom survey configuration
     @jsondata:Name {value: "custom_survey"}
     MeetingSurveyCustomSurvey customSurvey?;
     # The link to the third party meeting survey
@@ -2716,7 +2696,7 @@ public type CreateH323DeviceResponseDetails record {
     #  `yes` - yes.  
     #  `no` - no
     "auto"|"yes"|"no" encryption;
-    # IP address of the device
+    # Device IP
     string ip;
     # Device name
     @constraint:String {maxLength: 64}
@@ -2757,7 +2737,6 @@ public type GetMeetingSummaryResponse record {
     #  Use the [**List past meeting instances**](/docs/api-reference/zoom-api/methods#operation/pastMeetings) API to retrieve a list of UUIDs from past meeting instances. [Double encode](/docs/api/rest/using-zoom-apis/#meeting-id-and-uuid) your UUID when using it for API calls if the UUID begins with a `/` or contains `//` in it
     @jsondata:Name {value: "meeting_uuid"}
     string meetingUuid?;
-    # Summary content as edited by the user
     @jsondata:Name {value: "edited_summary"}
     GetMeetingSummaryResponseEditedSummary editedSummary?;
     # The summary's end date and time
@@ -2808,7 +2787,6 @@ public type GetMeetingSummaryResponse record {
 };
 
 public type ListSipPhonesResponse record {
-    # Token to retrieve the next page of results
     @jsondata:Name {value: "next_page_token"}
     string nextPageToken?;
     # SIP phones object
@@ -2820,7 +2798,6 @@ public type ListSipPhonesResponse record {
 };
 
 public type AddMeetingBatchRegistrantsRequest record {
-    # List of registrants
     AddMeetingBatchRegistrantsRequestRegistrant[] registrants?;
     # Send confirmation Email to Registrants
     @jsondata:Name {value: "registrants_confirmation_email"}
@@ -2878,7 +2855,6 @@ public type AddDeviceRequest record {
 };
 
 public type GetArchivedFileStatisticsResponse record {
-    # Archived file counts grouped by file extension
     @jsondata:Name {value: "statistic_by_file_extension"}
     GetArchivedFileStatisticsResponseStatisticByFileExtension statisticByFileExtension?;
     # The total number of returned meeting records
@@ -2888,7 +2864,6 @@ public type GetArchivedFileStatisticsResponse record {
     string 'from?;
     # The queried end date
     string to?;
-    # Archived file counts grouped by file status
     @jsondata:Name {value: "statistic_by_file_status"}
     GetArchivedFileStatisticsResponseStatisticByFileStatus statisticByFileStatus?;
 };
@@ -2979,7 +2954,6 @@ public type UpdateMeetingRegistrationQuestionsRequestQuestion record {
 };
 
 public type ListPastMeetingPollsResponseQuestion record {
-    # Details of the question
     @jsondata:Name {value: "question_details"}
     ListPastMeetingPollsResponseQuestionDetail[] questionDetails?;
     # Name of the user who submitted answers to the poll. If `anonymous` option is enabled for a poll, the participant's polling information will be kept anonymous and the value of `name` field will be `Anonymous Attendee`
@@ -3344,7 +3318,7 @@ public type ListWebinarPanelistsResponsePanelist record {
 
 # Occurrence object. This object is only returned for Recurring Webinars
 public type AddMeetingRegistrantResponseOccurrence record {
-    # Duration of the occurrence, in minutes
+    # Duration
     int duration?;
     # Start time
     @jsondata:Name {value: "start_time"}
@@ -3551,7 +3525,6 @@ public type GetZpaDeviceSettingsResponseDeviceInfoPolicyHotDesking record {
 };
 
 public type UpdateRecordingRegistrantStatusRequestRegistrant record {
-    # Unique identifier of the registrant
     string id?;
 };
 
@@ -3614,7 +3587,7 @@ public type ListH323DevicesResponseDetailsDeviceDetails record {
     #  `yes` - yes.  
     #  `no` - no
     "auto"|"yes"|"no" encryption;
-    # IP address of the device
+    # Device IP
     string ip;
     # Device name
     @constraint:String {maxLength: 64}
@@ -3661,7 +3634,6 @@ public type CreateWebinarResponseSettings record {
     # Whether the **Allow alternative hosts to add or edit polls** feature is enabled. This requires Zoom version 5.8.0 or higher
     @jsondata:Name {value: "alternative_host_update_polls"}
     boolean alternativeHostUpdatePolls?;
-    # Follow-up email notification settings for absentees
     @jsondata:Name {value: "follow_up_absentees_email_notification"}
     CreateWebinarSettingsFollowUpAbsenteesEmailNotification followUpAbsenteesEmailNotification?;
     # Whether to show the webinar's join information on the registration confirmation page. This setting is only applied to webinars with registration enabled
@@ -3670,10 +3642,8 @@ public type CreateWebinarResponseSettings record {
     # List of global dial-in countries
     @jsondata:Name {value: "global_dial_in_countries"}
     string[] globalDialInCountries?;
-    # Q&A settings
     @jsondata:Name {value: "question_and_answer"}
     CreateWebinarResponseSettingsQuestionAndAnswer questionAndAnswer?;
-    # Reminder email notification settings for attendees and panelists
     @jsondata:Name {value: "attendees_and_panelists_reminder_email_notification"}
     WebinarSettingsAttendeesAndPanelistsReminderEmailNotification attendeesAndPanelistsReminderEmailNotification?;
     # `0` - Automatically approve.  
@@ -3702,7 +3672,6 @@ public type CreateWebinarResponseSettings record {
     # Webinar authentication option ID
     @jsondata:Name {value: "authentication_option"}
     string authenticationOption?;
-    # Sign language interpretation settings
     @jsondata:Name {value: "sign_language_interpretation"}
     CreateWebinarSettingsSignLanguageInterpretation signLanguageInterpretation?;
     # Always send 1080p video to attendees
@@ -3765,7 +3734,6 @@ public type CreateWebinarResponseSettings record {
     # Start video when host joins webinar
     @jsondata:Name {value: "host_video"}
     boolean hostVideo?;
-    # Language interpretation settings
     @jsondata:Name {value: "language_interpretation"}
     CreateWebinarSettingsLanguageInterpretation languageInterpretation?;
     # Start video when panelists join the webinar
@@ -3793,7 +3761,6 @@ public type CreateWebinarResponseSettings record {
     # Require panelists to authenticate to join. If not provided, the default value will be based on the user's setting
     @jsondata:Name {value: "panelist_authentication"}
     boolean panelistAuthentication?;
-    # Follow-up email notification settings for attendees
     @jsondata:Name {value: "follow_up_attendees_email_notification"}
     WebinarSettingsFollowUpAttendeesEmailNotification followUpAttendeesEmailNotification?;
     # Whether to include guest's email addresses in attendee reports for webinars
@@ -3989,7 +3956,6 @@ public type GetZpaDeviceSettingsResponse record {
 };
 
 public type CreateMeetingBatchPollsResponse record {
-    # List of polls
     CreateMeetingBatchPollsResponsePoll[] polls?;
 };
 
@@ -4143,7 +4109,6 @@ public type GetRecordingSettingsResponse record {
 };
 
 public type GetMeetingRegistrantResponseBase record {
-    # Unique identifier of the registrant
     string id?;
 };
 
@@ -4487,7 +4452,7 @@ public type UpdateH323DeviceRequest record {
     #  `yes` - yes.  
     #  `no` - no
     "auto"|"yes"|"no" encryption;
-    # IP address of the device
+    # Device IP
     string ip;
     # Device name
     @constraint:String {maxLength: 64}
@@ -4648,7 +4613,6 @@ public type UpdateWebinarRequest record {
     boolean transitionToLive?;
     # The webinar topic
     string topic?;
-    # Delay settings for starting a simulive webinar
     @jsondata:Name {value: "simulive_delay_start"}
     UpdateWebinarRequestSimuliveDelayStart simuliveDelayStart?;
 };
@@ -4703,7 +4667,6 @@ public type ListArchivedFilesResponse record {
 };
 
 public type RecoverRecordingsRequest record {
-    # Recovery action to perform
     "recover" action?;
 };
 
@@ -4783,7 +4746,6 @@ public type GetWebinarSurveyResponse record {
     #  This value defaults to `true`
     @jsondata:Name {value: "show_in_the_browser"}
     boolean showInTheBrowser = true;
-    # Custom survey configuration
     @jsondata:Name {value: "custom_survey"}
     GetWebinarSurveyResponseCustomSurvey customSurvey?;
     # Whether the **Show the link on the follow-up email** option is enabled. 
@@ -4955,7 +4917,6 @@ public type GetRemoteSupportReportResponse record {
 };
 
 public type ListPastWebinarPollsResponseQuestion record {
-    # Details of the question
     @jsondata:Name {value: "question_details"}
     ListPastWebinarPollsResponseQuestionDetail[] questionDetails?;
     # Name of the user who submitted answers to the poll. If the `anonymous` option is enabled for a poll, the participant's polling information will be kept anonymous and the value of `name` field will be `Anonymous Attendee`
@@ -5021,7 +4982,7 @@ public type CreateMeetingResponse record {
     # * `false` - A regular meeting
     @jsondata:Name {value: "pre_schedule"}
     boolean preSchedule = false;
-    # Agenda of the meeting
+    # Agenda
     string agenda?;
     # The ID of the user who is set as the meeting host
     @jsondata:Name {value: "host_id"}
@@ -5105,7 +5066,6 @@ public type GetBillingInvoiceReportResponseInvoice record {
 };
 
 public type UpdateWebinarStatusRequest record {
-    # Status action to apply to the webinar
     "end" action?;
 };
 
@@ -5320,7 +5280,6 @@ public type UpdateWebinarRequestRecurrence record {
 };
 
 public type AddMeetingBatchRegistrantsResponse record {
-    # List of registrants
     AddMeetingBatchRegistrantsResponseRegistrant[] registrants?;
 };
 
@@ -5506,7 +5465,6 @@ public type GetBillingInvoiceReportQueries record {
 };
 
 public type GetWebinarRegistrantResponseBase record {
-    # Unique identifier of the registrant
     string id?;
 };
 
@@ -5677,7 +5635,6 @@ public type CreateMeetingResponseSettingsApprovedOrDeniedCountriesOrRegions reco
 };
 
 public type GetBillingInvoiceReportResponse record {
-    # List of invoices
     GetBillingInvoiceReportResponseInvoice[] invoices?;
     # Currency of the billed amount in the invoice
     string currency?;
@@ -5808,7 +5765,6 @@ public type CreateMeetingRequestSettingsQuestionAndAnswer record {
 
 # Information about the meeting's settings
 public type CreateMeetingRequestSettings record {
-    # Breakout room settings
     @jsondata:Name {value: "breakout_room"}
     CreateMeetingRequestSettingsBreakoutRoom breakoutRoom?;
     # Whether to allow the host and co-hosts to fully control the mute state of participants. If not provided, the default value will be based on the user's setting. This option cannot be used together with `request_permission_to_unmute_participants`, only one of the two can be enabled at a time
@@ -5824,7 +5780,6 @@ public type CreateMeetingRequestSettings record {
     # To include `India` and `Japan` as additional data centers, use the `[IN, TY]` value for this field
     @jsondata:Name {value: "additional_data_center_regions"}
     string[] additionalDataCenterRegions?;
-    # Waiting room settings
     @jsondata:Name {value: "waiting_room_options"}
     MeetingSettingsWaitingRoomOptions waitingRoomOptions?;
     # Whether to include social media sharing buttons on the meeting's registration page. This setting is only applied to meetings with registration enabled
@@ -5835,10 +5790,8 @@ public type CreateMeetingRequestSettings record {
     # * `false` - Do not send a confirmation email
     @jsondata:Name {value: "registrants_confirmation_email"}
     boolean registrantsConfirmationEmail?;
-    # Countries or regions that are approved or blocked from joining
     @jsondata:Name {value: "approved_or_denied_countries_or_regions"}
     CreateMeetingRequestSettingsApprovedOrDeniedCountriesOrRegions approvedOrDeniedCountriesOrRegions?;
-    # Continuous meeting chat settings
     @jsondata:Name {value: "continuous_meeting_chat"}
     CreateMeetingRequestSettingsContinuousMeetingChat continuousMeetingChat?;
     # Whether to allow attendees to join a meeting from multiple devices. This setting is only applied to meetings with registration enabled
@@ -5869,7 +5822,6 @@ public type CreateMeetingRequestSettings record {
     # Whether to show the meeting's join information on the registration confirmation page. This setting is only applied to meetings with registration enabled
     @jsondata:Name {value: "show_join_info"}
     boolean showJoinInfo?;
-    # Settings for automatically adding recordings to video management
     @jsondata:Name {value: "auto_add_recording_to_video_management"}
     CreateMeetingSettingsAutoAddRecordingToVideoManagement autoAddRecordingToVideoManagement?;
     # Whether to host the meeting in India (IN). This value defaults to `false`
@@ -5884,7 +5836,6 @@ public type CreateMeetingRequestSettings record {
     # A list of available global dial-in countries
     @jsondata:Name {value: "global_dial_in_countries"}
     string[] globalDialInCountries?;
-    # Q&A settings
     @jsondata:Name {value: "question_and_answer"}
     CreateMeetingRequestSettingsQuestionAndAnswer questionAndAnswer?;
     # Whether participants can join the meeting before its host. This field is only used for scheduled meetings (`2`) or recurring meetings (`3` and `8`). This value defaults to `false`.
@@ -5970,7 +5921,6 @@ public type CreateMeetingRequestSettings record {
     # To get this value, use the `authentication_options` array's `id` value in the [**Get user settings**](/docs/api-reference/zoom-api/methods#operation/userSettings) API response
     @jsondata:Name {value: "authentication_option"}
     string authenticationOption?;
-    # Sign language interpretation settings
     @jsondata:Name {value: "sign_language_interpretation"}
     CreateMeetingSettingsSignLanguageInterpretation signLanguageInterpretation?;
     # Whether to disable the participant video during meeting. To enable this feature for your account, please [contact Zoom Support](https://support.zoom.us/hc/en-us)
@@ -6060,7 +6010,6 @@ public type CreateMeetingRequestSettings record {
     # Whether to start meetings with the host video on
     @jsondata:Name {value: "host_video"}
     boolean hostVideo?;
-    # Language interpretation settings
     @jsondata:Name {value: "language_interpretation"}
     CreateMeetingSettingsLanguageInterpretation languageInterpretation?;
     # Whether to automatically start a meeting summary. If not provided, the default value will be based on the user's setting
@@ -6210,7 +6159,6 @@ public type ListSipPhonesQueries record {
 };
 
 public type GetBillingReportResponse record {
-    # List of billing reports
     @jsondata:Name {value: "billing_reports"}
     GetBillingReportResponseBillingReport[] billingReports?;
     # Currency of the billed amount
@@ -6336,7 +6284,6 @@ public type GetWebinarRegistrantResponse record {
 };
 
 public type ListMeetingTemplatesResponse record {
-    # List of templates
     ListMeetingTemplatesResponseTemplate[] templates?;
     # Total records found for this request
     @jsondata:Name {value: "total_records"}
@@ -6358,7 +6305,6 @@ public type UpdateWebinarRequestSettings record {
     # Whether to allow the host and co-hosts to fully control the mute state of participants. Not supported for simulive webinar. This option cannot be used together with `request_permission_to_unmute_participants`, only one of the two can be enabled at a time
     @jsondata:Name {value: "allow_host_control_participant_mute_state"}
     boolean allowHostControlParticipantMuteState?;
-    # Sign language interpretation settings
     @jsondata:Name {value: "sign_language_interpretation"}
     WebinarSettingsSignLanguageInterpretation signLanguageInterpretation?;
     # Add more webinar [data center regions](https://support.zoom.us/hc/en-us/articles/360042411451-Selecting-data-center-regions-for-hosted-meetings-and-webinars). Provide this value as an array of [country codes](/docs/api/references/abbreviations/#countries) for the countries available as data center regions in the [**Account Profile**](https://zoom.us/account/setting) interface but have been opted out of in the [user settings](https://zoom.us/profile).
@@ -6404,7 +6350,6 @@ public type UpdateWebinarRequestSettings record {
     # Whether the **Allow alternative hosts to add or edit polls** feature is enabled. This requires Zoom version 5.8.0 or higher
     @jsondata:Name {value: "alternative_host_update_polls"}
     boolean alternativeHostUpdatePolls?;
-    # Follow-up email notification settings for absentees
     @jsondata:Name {value: "follow_up_absentees_email_notification"}
     CreateWebinarSettingsFollowUpAbsenteesEmailNotification followUpAbsenteesEmailNotification?;
     # Add audio watermark that identifies the participants
@@ -6440,13 +6385,11 @@ public type UpdateWebinarRequestSettings record {
     # Restrict number of registrants for a webinar. By default, it is set to `0`. A `0` value means that the restriction option is disabled. Provide a number higher than 0 to restrict the webinar registrants by the that number
     @jsondata:Name {value: "registrants_restrict_number"}
     int registrantsRestrictNumber = 0;
-    # Q&A settings
     @jsondata:Name {value: "question_and_answer"}
     UpdateWebinarRequestSettingsQuestionAndAnswer questionAndAnswer?;
     # Contact name for registration
     @jsondata:Name {value: "contact_name"}
     string contactName?;
-    # Reminder email notification settings for attendees and panelists
     @jsondata:Name {value: "attendees_and_panelists_reminder_email_notification"}
     WebinarSettingsAttendeesAndPanelistsReminderEmailNotification attendeesAndPanelistsReminderEmailNotification?;
     # Send email notifications to registrants about approval, cancellation, denial of the registration. The value of this field must be set to true in order to use the `registrants_confirmation_email` field
@@ -6472,7 +6415,6 @@ public type UpdateWebinarRequestSettings record {
     # Start video when host joins the webinar
     @jsondata:Name {value: "host_video"}
     boolean hostVideo?;
-    # Language interpretation settings
     @jsondata:Name {value: "language_interpretation"}
     WebinarSettingsLanguageInterpretation languageInterpretation?;
     # Start video when panelists join the webinar
@@ -6512,7 +6454,6 @@ public type UpdateWebinarRequestSettings record {
     # If user has configured [**Sign Into Zoom with Specified Domains**](https://support.zoom.us/hc/en-us/articles/360037117472-Authentication-Profiles-for-Meetings-and-Webinars#h_5c0df2e1-cfd2-469f-bb4a-c77d7c0cca6f) option, this will list the domains that are authenticated
     @jsondata:Name {value: "authentication_domains"}
     string authenticationDomains?;
-    # Follow-up email notification settings for attendees
     @jsondata:Name {value: "follow_up_attendees_email_notification"}
     WebinarSettingsFollowUpAttendeesEmailNotification followUpAttendeesEmailNotification?;
     # Whether to include guest's email addresses in webinars' attendee reports
@@ -6893,13 +6834,11 @@ public type ListSipPhonesResponsePhone record {
     # The email address of the user to associate with the SIP Phone. Can add `.pc`, `.mobile`, `.pad` at the end of the email (for example, `user@example.com.pc`) to add accounts for different platforms for the same user
     @jsondata:Name {value: "user_email"}
     string userEmail?;
-    # Configuration of the tertiary SIP server
     @jsondata:Name {value: "server_3"}
     SipServer server3?;
     # The number to dial for checking voicemail
     @jsondata:Name {value: "voice_mail"}
     string voiceMail?;
-    # Configuration of the secondary SIP server
     @jsondata:Name {value: "server_2"}
     SipServer server2?;
     # The phone number associated with the user in the SIP account. 
@@ -7100,7 +7039,6 @@ public type ListPastWebinarPollsResponse record {
     # The webinar's start time
     @jsondata:Name {value: "start_time"}
     string startTime?;
-    # List of questions
     ListPastWebinarPollsResponseQuestion[] questions?;
     # Webinar ID in **long** format, represented as int64 data type in JSON, also known as the webinar number
     int id?;
@@ -7133,7 +7071,7 @@ public type GetOperationLogsReportResponseDetailsOperationLog record {
     # Operation detail
     @jsondata:Name {value: "operation_detail"}
     string operationDetail?;
-    # Action performed by the operator
+    # Action
     string action?;
     # Category type
     @jsondata:Name {value: "category_type"}
@@ -7334,7 +7272,6 @@ public type UpdateWebinarRegistrationQuestionsRequestQuestion record {
 };
 
 public type ListPastMeetingQaResponseQuestion record {
-    # Details of the question
     @jsondata:Name {value: "question_details"}
     ListPastMeetingQaResponseQuestionDetail[] questionDetails?;
     # The user's name. If `anonymous` option is enabled for the Q&amp;A, the participant's information is be kept anonymous and the value of `name` field is `Anonymous Attendee`
@@ -7352,10 +7289,8 @@ public type ListUserPacAccountsResponsePacAccountGlobalDialInNumber record {
 };
 
 public type GetWebinarRegistrantResponseExtension record {
-    # URL for the registrant to join the webinar
     @jsondata:Name {value: "join_url"}
     string joinUrl?;
-    # Time when the registrant was created
     @jsondata:Name {value: "create_time"}
     string createTime?;
     # Registration status of the registrant
@@ -7564,7 +7499,7 @@ public type GetTelephoneReportResponseDetailsTelephonyUsage record {
     string meetingType?;
     # User department
     string dept?;
-    # Type of the telephony call
+    # Call type
     "toll-free"|"call-out"|"call-in"|"US toll-number"|"global toll-number"|"premium"|"premium call-in"|"Toll" 'type?;
     # Meeting UUID
     string uuid?;
@@ -7661,7 +7596,6 @@ public type UpdateWebinarSurveyRequest record {
     #  This value defaults to `true`
     @jsondata:Name {value: "show_in_the_browser"}
     boolean showInTheBrowser = true;
-    # Custom survey configuration
     @jsondata:Name {value: "custom_survey"}
     UpdateWebinarSurveyRequestCustomSurvey customSurvey?;
     # Whether the **Show the link on the follow-up email** option is enabled. 
@@ -7803,7 +7737,6 @@ public type CreateWebinarResponse record {
     # You must provide the user ID of the host instead of the email address in the `userId` path parameter in order to use a template for scheduling a Webinar
     @jsondata:Name {value: "template_id"}
     string templateId?;
-    # Delay settings for starting a simulive webinar
     @jsondata:Name {value: "simulive_delay_start"}
     CreateWebinarResponseSimuliveDelayStart simuliveDelayStart?;
 };
@@ -7932,7 +7865,6 @@ public type ListPastWebinarQaResponse record {
     # The webinar's start time
     @jsondata:Name {value: "start_time"}
     string startTime?;
-    # List of questions
     ListPastWebinarQaResponseQuestion[] questions?;
     # Webinar ID in **long** format, represented as int64 data type in JSON, also known as the webinar number
     int id?;
@@ -8356,7 +8288,6 @@ public type CreateTrackingFieldRequest record {
 };
 
 public type ListPastWebinarQaResponseQuestion record {
-    # Details of the question
     @jsondata:Name {value: "question_details"}
     ListPastWebinarQaResponseQuestionDetail[] questionDetails?;
     # Name of the user. If `anonymous` option is enabled for the Q&amp;A, the participant's information will be kept anonymous and the value of `name` field will be `Anonymous Attendee`
@@ -8535,13 +8466,11 @@ public type EnableSipPhoneRequest record {
     # The email address of the user to associate with the SIP Phone. Can add `.pc`, `.mobile`, `.pad` at the end of the email, such as `user@example.com.pc`, to add accounts for different platforms for the same user
     @jsondata:Name {value: "user_email"}
     string userEmail;
-    # Configuration of the tertiary SIP server
     @jsondata:Name {value: "server_3"}
     SipServer server3?;
     # The number to dial for checking voicemail
     @jsondata:Name {value: "voice_mail"}
     string voiceMail?;
-    # Configuration of the secondary SIP server
     @jsondata:Name {value: "server_2"}
     SipServer server2?;
     # The phone number associated with the user in the SIP account
@@ -8572,7 +8501,6 @@ public type CreateMeetingTemplateResponse record {
 public type UpdateRecordingRegistrantStatusRequest record {
     # List of registrants
     UpdateRecordingRegistrantStatusRequestRegistrant[] registrants?;
-    # Status action to apply to the recording registrants
     "approve"|"deny" action;
 };
 
@@ -8920,10 +8848,8 @@ public type GetWebinarResponseSimuliveDelayStart record {
 
 # The device policy
 public type GetZpaDeviceSettingsResponseDeviceInfoPolicy record {
-    # Call control policy
     @jsondata:Name {value: "call_control"}
     GetZpaDeviceSettingsResponseDeviceInfoPolicyCallControl callControl?;
-    # Hot desking policy
     @jsondata:Name {value: "hot_desking"}
     GetZpaDeviceSettingsResponseDeviceInfoPolicyHotDesking hotDesking?;
 };
@@ -8945,9 +8871,7 @@ public type ListMeetingPollsResponse record {
 };
 
 public type UpdateMeetingRegistrantStatusRequestRegistrant record {
-    # Unique identifier of the registrant
     string id?;
-    # Email address of the registrant
     string email?;
 };
 
@@ -9121,7 +9045,6 @@ public type CreateWebinarRequest record {
     # The webinar template ID to schedule a webinar using a [webinar template](https://support.zoom.us/hc/en-us/articles/115001079746-Webinar-Templates) or a [admin webinar template](https://support.zoom.us/hc/en-us/articles/8137753618957-Configuring-admin-webinar-templates). For a list of webinar templates, use the [**List webinar templates**](/docs/api/rest/reference/zoom-api/methods#operation/listWebinarTemplates) API
     @jsondata:Name {value: "template_id"}
     string templateId?;
-    # Delay settings for starting a simulive webinar
     @jsondata:Name {value: "simulive_delay_start"}
     CreateWebinarRequestSimuliveDelayStart simuliveDelayStart?;
 };
@@ -9178,7 +9101,7 @@ public type MeetingIdentifier MeetingIdentifierBase|MeetingIdentifierDetails;
 
 # Occurrence object. This object is only returned for recurring webinars
 public type GetWebinarResponseOccurrence record {
-    # Duration of the occurrence, in minutes
+    # Duration
     int duration?;
     # Start time
     @jsondata:Name {value: "start_time"}
@@ -9268,7 +9191,7 @@ public type GetHistoryMeetingsReportResponseHistoryMeetingCustomField record {
 };
 
 public type ListH323DevicesResponseDetailsDeviceBase record {
-    # Unique identifier of the device
+    # Device ID
     string id?;
 };
 
@@ -9315,7 +9238,7 @@ public type GetUpcomingEventsReportResponseUpcomingEvent record {
 };
 
 public type CreateH323DeviceResponseBase record {
-    # Unique identifier of the device
+    # Device ID
     string id?;
 };
 
@@ -9815,7 +9738,7 @@ public type ListUserRecordingsQueries record {
 
 # Occurrence object. This object is only returned for recurring meetings
 public type GetMeetingResponseOccurrence record {
-    # Duration of the occurrence, in minutes
+    # Duration
     int duration?;
     # Start time
     @jsondata:Name {value: "start_time"}
@@ -9895,7 +9818,6 @@ public type AddMeetingAppResponse record {
     # The user IDs of the participants to share the app with. The `share_with` filter still applies
     @jsondata:Name {value: "user_ids"}
     AddMeetingAppResponseUseridsItemsString[] userIds?;
-    # Users the app is shared with
     @jsondata:Name {value: "share_with"}
     MeetingAppShareWith shareWith?;
     # The [meeting ID](https://support.zoom.us/hc/en-us/articles/201362373-What-is-a-Meeting-ID-): Unique identifier of the meeting in **long** format(represented as int64 data type in JSON), also known as the meeting number
@@ -9910,7 +9832,6 @@ public type AddMeetingAppResponse record {
 };
 
 public type AddWebinarBatchRegistrantsResponse record {
-    # List of registrants
     AddWebinarBatchRegistrantsResponseRegistrant[] registrants?;
 };
 
@@ -10065,7 +9986,6 @@ public type ListWebinarRegistrantsResponseDetailsRegistrantDetails record {
 };
 
 public type AddWebinarBatchRegistrantsRequest record {
-    # List of registrants
     AddWebinarBatchRegistrantsRequestRegistrant[] registrants?;
     # If a meeting was scheduled with approval_type `1` (manual approval), but you want to automatically approve registrants added via this API, set the value of this field to `true`. 
     # 
@@ -10266,7 +10186,6 @@ public type GetHistoryMeetingsReportResponseHistoryMeeting record {
     # The tracking fields and values assigned to the meeting
     @jsondata:Name {value: "tracking_fields"}
     GetHistoryMeetingsReportResponseHistoryMeetingTrackingField[] trackingFields?;
-    # Features used during the meeting
     @jsondata:Name {value: "feature_used"}
     GetHistoryMeetingsReportResponseHistoryMeetingFeatureUsed featureUsed?;
     # The meeting's topic
@@ -10479,7 +10398,6 @@ public type ListPastMeetingPollsResponse record {
     # The start time of the meeting
     @jsondata:Name {value: "start_time"}
     string startTime?;
-    # List of questions
     ListPastMeetingPollsResponseQuestion[] questions?;
     # [Meeting ID](https://support.zoom.us/hc/en-us/articles/201362373-What-is-a-Meeting-ID-): Unique identifier of the meeting in **long** format(represented as int64 data type in JSON), also known as the meeting number
     int id?;
@@ -10515,13 +10433,11 @@ public type UpdateSipPhoneRequest record {
     SipServer server?;
     # The password generated for the user in the SIP account
     string password?;
-    # Configuration of the tertiary SIP server
     @jsondata:Name {value: "server_3"}
     SipServer server3?;
     # The number to dial for checking voicemail
     @jsondata:Name {value: "voice_mail"}
     string voiceMail?;
-    # Configuration of the secondary SIP server
     @jsondata:Name {value: "server_2"}
     SipServer server2?;
     # The phone number associated with the user in the SIP account
@@ -10576,7 +10492,6 @@ public type CreateWebinarResponseSettingsGlobalDialInNumber record {
 
 # Meeting settings
 public type UpdateMeetingRequestSettings record {
-    # Breakout room settings
     @jsondata:Name {value: "breakout_room"}
     UpdateMeetingRequestSettingsBreakoutRoom breakoutRoom?;
     # Whether to allow the host and co-hosts to fully control the mute state of participants. This option cannot be used together with `request_permission_to_unmute_participants`, only one of the two can be enabled at a time
@@ -10585,7 +10500,6 @@ public type UpdateMeetingRequestSettings record {
     # The summary template ID used to generate a meeting summary based on a predefined template. To get available summary templates, use the **Get user summary templates** API. To enable this feature for your account, please [contact Zoom Support](https://support.zoom.com/hc/en)
     @jsondata:Name {value: "summary_template_id"}
     string summaryTemplateId?;
-    # Waiting room settings
     @jsondata:Name {value: "waiting_room_options"}
     MeetingSettingsWaitingRoomOptions waitingRoomOptions?;
     # Custom keys and values assigned to the meeting
@@ -10603,10 +10517,8 @@ public type UpdateMeetingRequestSettings record {
     # * `false` - Do not send a confirmation email
     @jsondata:Name {value: "registrants_confirmation_email"}
     boolean registrantsConfirmationEmail?;
-    # Countries or regions that are approved or blocked from joining
     @jsondata:Name {value: "approved_or_denied_countries_or_regions"}
     UpdateMeetingRequestSettingsApprovedOrDeniedCountriesOrRegions approvedOrDeniedCountriesOrRegions?;
-    # Continuous meeting chat settings
     @jsondata:Name {value: "continuous_meeting_chat"}
     UpdateMeetingRequestSettingsContinuousMeetingChat continuousMeetingChat?;
     # Allow attendees to join the meeting from multiple devices. This setting only works for meetings that require [registration](https://support.zoom.us/hc/en-us/articles/211579443-Setting-up-registration-for-a-meeting)
@@ -10634,7 +10546,6 @@ public type UpdateMeetingRequestSettings record {
     # Works with the `private_meeting` field to determine whether to share details of meetings
     @jsondata:Name {value: "calendar_type"}
     1|2 calendarType?;
-    # Settings for automatically adding recordings to video management
     @jsondata:Name {value: "auto_add_recording_to_video_management"}
     UpdateMeetingRequestSettingsAutoAddRecordingToVideoManagement autoAddRecordingToVideoManagement?;
     # Host meeting in India
@@ -10649,7 +10560,6 @@ public type UpdateMeetingRequestSettings record {
     # List of global dial-in countries
     @jsondata:Name {value: "global_dial_in_countries"}
     string[] globalDialInCountries?;
-    # Q&A settings
     @jsondata:Name {value: "question_and_answer"}
     UpdateMeetingRequestSettingsQuestionAndAnswer questionAndAnswer?;
     # Allow participants to join the meeting before the host starts the meeting. Only used for scheduled or recurring meetings
@@ -10731,7 +10641,6 @@ public type UpdateMeetingRequestSettings record {
     # Meeting authentication option ID
     @jsondata:Name {value: "authentication_option"}
     string authenticationOption?;
-    # Sign language interpretation settings
     @jsondata:Name {value: "sign_language_interpretation"}
     UpdateMeetingRequestSettingsSignLanguageInterpretation signLanguageInterpretation?;
     # Whether to disable the participant video during a meeting. To enable this feature for your account, [contact Zoom Support](https://support.zoom.us/hc/en-us)
@@ -10827,7 +10736,6 @@ public type UpdateMeetingRequestSettings record {
     # Start video when the host joins the meeting
     @jsondata:Name {value: "host_video"}
     boolean hostVideo?;
-    # Language interpretation settings
     @jsondata:Name {value: "language_interpretation"}
     MeetingSettingsLanguageInterpretation languageInterpretation?;
     # Only signed in users can join this meeting.
@@ -11338,13 +11246,12 @@ public type UpgradeZpaDevicesRequest record {
     # The ZDM group ID
     @jsondata:Name {value: "zdm_group_id"}
     string zdmGroupId;
-    # Upgrade details for the ZPA firmware or app
     record {record {string vendor?; string version?; string model?;}[] firmware_versions?; "UPGRADE_FIRMWARE" upgrade_type = "UPGRADE_FIRMWARE";}|record {string app_version?; "UPGRADE_APP" upgrade_type;} data;
 };
 
 # Occurrence object. This object is only returned for recurring webinars
 public type CreateWebinarResponseOccurrence record {
-    # Duration of the occurrence, in minutes
+    # Duration
     int duration?;
     # Start time
     @jsondata:Name {value: "start_time"}
@@ -11634,7 +11541,6 @@ public type UpdateMeetingChatMessageRequest record {
 
 # The in-meeting parameters
 public type ControlLiveMeetingRequestParams record {
-    # SIP headers to send with the invitation
     @jsondata:Name {value: "sip_headers"}
     ControlLiveMeetingRequestParamsSipHeaders sipHeaders?;
     # The title displayed in the waiting room. Use this field if you pass the `waiting_room.update` value for the `method` field
@@ -11661,7 +11567,6 @@ public type ControlLiveMeetingRequestParams record {
     # If this field is not provided, the behavior follows the user-level setting **Start meeting transcript**
     @jsondata:Name {value: "retain_meeting_transcript"}
     boolean retainMeetingTranscript?;
-    # Options for the invitation
     @jsondata:Name {value: "invite_options"}
     ControlLiveMeetingRequestParamsInviteOptions inviteOptions?;
     # The user's phone number. Use this field if you pass the `participant.invite.callout` value for the `method` field. As a best practice, ensure this includes a country code and area code.
@@ -11685,7 +11590,6 @@ public type ControlLiveMeetingRequestParams record {
     string callType?;
     # The users to invite, including Zoom Rooms. Each user must belong to the meeting host's account. You can specify each user by email address or user ID. If both `email` and `id` are provided, the API uses `id` and ignores `email`
     ControlLiveMeetingRequestParamsContact[] contacts?;
-    # H.323 headers to send with the invitation
     @jsondata:Name {value: "h323_headers"}
     ControlLiveMeetingRequestParamsH323Headers h323Headers?;
     # The participant's UUID. This value is assigned to a participant upon joining a meeting and is only valid for the duration of the meeting. Use this field if you pass the `participant.remove` value for the `method` field
@@ -11855,7 +11759,6 @@ public type DeleteWebinarNameTagsQueries record {
 
 # Meeting settings
 public type CreateMeetingResponseSettings record {
-    # Breakout room settings
     @jsondata:Name {value: "breakout_room"}
     CreateMeetingResponseSettingsBreakoutRoom breakoutRoom?;
     # Whether to allow the host and co-hosts to fully control the mute state of participants. If not provided, the default value will be based on the user's setting. This option cannot be used together with `request_permission_to_unmute_participants`, only one of the two can be enabled at a time
@@ -11871,7 +11774,6 @@ public type CreateMeetingResponseSettings record {
     # To include `India` and `Japan` as additional data centers, use the `[IN, TY]` value for this field
     @jsondata:Name {value: "additional_data_center_regions"}
     string[] additionalDataCenterRegions?;
-    # Waiting room settings
     @jsondata:Name {value: "waiting_room_options"}
     MeetingSettingsWaitingRoomOptions waitingRoomOptions?;
     # Custom keys and values assigned to the meeting
@@ -11889,10 +11791,8 @@ public type CreateMeetingResponseSettings record {
     # * `false` - Do not send a confirmation email
     @jsondata:Name {value: "registrants_confirmation_email"}
     boolean registrantsConfirmationEmail?;
-    # Countries or regions that are approved or blocked from joining
     @jsondata:Name {value: "approved_or_denied_countries_or_regions"}
     CreateMeetingResponseSettingsApprovedOrDeniedCountriesOrRegions approvedOrDeniedCountriesOrRegions?;
-    # Continuous meeting chat settings
     @jsondata:Name {value: "continuous_meeting_chat"}
     CreateMeetingResponseSettingsContinuousMeetingChat continuousMeetingChat?;
     # Allow attendees to join the meeting from multiple devices. This setting only works for meetings that require [registration](https://support.zoom.us/hc/en-us/articles/211579443-Setting-up-registration-for-a-meeting)
@@ -11923,7 +11823,6 @@ public type CreateMeetingResponseSettings record {
     # Whether to show the meeting's join information on the registration confirmation page. This setting is only applied to meetings with registration enabled
     @jsondata:Name {value: "show_join_info"}
     boolean showJoinInfo?;
-    # Settings for automatically adding recordings to video management
     @jsondata:Name {value: "auto_add_recording_to_video_management"}
     CreateMeetingResponseSettingsAutoAddRecordingToVideoManagement autoAddRecordingToVideoManagement?;
     # Host meeting in India
@@ -11938,7 +11837,6 @@ public type CreateMeetingResponseSettings record {
     # List of global dial-in countries
     @jsondata:Name {value: "global_dial_in_countries"}
     string[] globalDialInCountries?;
-    # Q&A settings
     @jsondata:Name {value: "question_and_answer"}
     CreateMeetingResponseSettingsQuestionAndAnswer questionAndAnswer?;
     # Allow participants to join the meeting before the host starts the meeting. Only used for scheduled or recurring meetings
@@ -12020,7 +11918,6 @@ public type CreateMeetingResponseSettings record {
     # Meeting authentication option ID
     @jsondata:Name {value: "authentication_option"}
     string authenticationOption?;
-    # Sign language interpretation settings
     @jsondata:Name {value: "sign_language_interpretation"}
     CreateMeetingSettingsSignLanguageInterpretation signLanguageInterpretation?;
     # Whether to disable the participant video during meeting. To enable this feature for your account, please [contact Zoom Support](https://support.zoom.us/hc/en-us)
@@ -12116,7 +12013,6 @@ public type CreateMeetingResponseSettings record {
     # Start video when the host joins the meeting
     @jsondata:Name {value: "host_video"}
     boolean hostVideo?;
-    # Language interpretation settings
     @jsondata:Name {value: "language_interpretation"}
     CreateMeetingSettingsLanguageInterpretation languageInterpretation?;
     # Only signed in users can join this meeting.
@@ -12188,7 +12084,7 @@ public type ListUserMeetingSummariesQueries record {
 
 # Occurrence object. This object is only returned for recurring webinars
 public type AddWebinarRegistrantResponseOccurrence record {
-    # Duration of the occurrence, in minutes
+    # Duration
     int duration?;
     # Start time
     @jsondata:Name {value: "start_time"}
@@ -12534,7 +12430,6 @@ public type MeetingSignLanguageInterpreter record {
 
 # Meeting settings
 public type GetMeetingResponseSettings record {
-    # Breakout room settings
     @jsondata:Name {value: "breakout_room"}
     GetMeetingResponseSettingsBreakoutRoom breakoutRoom?;
     # Whether to allow the host and co-hosts to fully control the mute state of participants. This option cannot be used together with `request_permission_to_unmute_participants`, only one of the two can be enabled at a time
@@ -12550,7 +12445,6 @@ public type GetMeetingResponseSettings record {
     # To include `India` and `Japan` as additional data centers, use the `[IN, TY]` value for this field
     @jsondata:Name {value: "additional_data_center_regions"}
     string[] additionalDataCenterRegions?;
-    # Waiting room settings
     @jsondata:Name {value: "waiting_room_options"}
     GetMeetingResponseSettingsWaitingRoomOptions waitingRoomOptions?;
     # Custom keys and values assigned to the meeting
@@ -12568,10 +12462,8 @@ public type GetMeetingResponseSettings record {
     # * `false` - Do not send a confirmation email
     @jsondata:Name {value: "registrants_confirmation_email"}
     boolean registrantsConfirmationEmail?;
-    # Countries or regions that are approved or blocked from joining
     @jsondata:Name {value: "approved_or_denied_countries_or_regions"}
     GetMeetingResponseSettingsApprovedOrDeniedCountriesOrRegions approvedOrDeniedCountriesOrRegions?;
-    # Continuous meeting chat settings
     @jsondata:Name {value: "continuous_meeting_chat"}
     GetMeetingResponseSettingsContinuousMeetingChat continuousMeetingChat?;
     # Allow attendees to join the meeting from multiple devices. This setting only works for meetings that require [registration](https://support.zoom.us/hc/en-us/articles/211579443-Setting-up-registration-for-a-meeting)
@@ -12602,7 +12494,6 @@ public type GetMeetingResponseSettings record {
     # Whether to show the meeting's join information on the registration confirmation page. This setting is only applied to meetings with registration enabled
     @jsondata:Name {value: "show_join_info"}
     boolean showJoinInfo?;
-    # Settings for automatically adding recordings to video management
     @jsondata:Name {value: "auto_add_recording_to_video_management"}
     CreateMeetingSettingsAutoAddRecordingToVideoManagement autoAddRecordingToVideoManagement?;
     # Host meeting in India
@@ -12617,7 +12508,6 @@ public type GetMeetingResponseSettings record {
     # List of global dial-in countries
     @jsondata:Name {value: "global_dial_in_countries"}
     string[] globalDialInCountries?;
-    # Q&A settings
     @jsondata:Name {value: "question_and_answer"}
     GetMeetingResponseSettingsQuestionAndAnswer questionAndAnswer?;
     # Allow participants to join the meeting before the host starts the meeting. Only used for scheduled or recurring meetings
@@ -12699,7 +12589,6 @@ public type GetMeetingResponseSettings record {
     # Meeting authentication option ID
     @jsondata:Name {value: "authentication_option"}
     string authenticationOption?;
-    # Sign language interpretation settings
     @jsondata:Name {value: "sign_language_interpretation"}
     GetMeetingResponseSettingsSignLanguageInterpretation signLanguageInterpretation?;
     # Whether to disable the participant video during meeting. To enable this feature for your account, please [contact Zoom Support](https://support.zoom.us/hc/en-us)
@@ -12796,7 +12685,6 @@ public type GetMeetingResponseSettings record {
     # Start video when the host joins the meeting
     @jsondata:Name {value: "host_video"}
     boolean hostVideo?;
-    # Language interpretation settings
     @jsondata:Name {value: "language_interpretation"}
     MeetingSettingsLanguageInterpretation languageInterpretation?;
     # Only signed in users can join this meeting.

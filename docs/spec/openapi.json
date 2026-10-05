@@ -880,7 +880,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "Auto-delete setting to apply to the archived file"
                 },
                 "responses": {
                     "204": {
@@ -1764,7 +1765,7 @@
                                                 },
                                                 "recording_play_passcode": {
                                                     "type": "string",
-                                                    "description": "The cloud recording's passcode to be used in the URL. Directly splice this recording's passcode in `play_url` or `share_url` with `?pwd=` to access and play. Example: 'https://zoom.us/rec/share/**************?pwd=yNYIS408EJygs7rE5vVsJwXIz4-VW7MH'.",
+                                                    "description": "The cloud recording's passcode to be used in the URL. Directly splice this recording's passcode in `play_url` or `share_url` with `?pwd=` to access and play. Example: 'https://zoom.us/rec/share/**************?pwd=yNYIS408EJygs7rE5vVsJwXIz4-VW7MH'",
                                                     "example": "yNYIS408EJygs7rE5vVsJwXIz4-VW7MH"
                                                 }
                                             }
@@ -2777,7 +2778,8 @@
                                 "description": "Registrant."
                             }
                         }
-                    }
+                    },
+                    "description": "Registrant details for access to the meeting's on-demand cloud recordings"
                 },
                 "responses": {
                     "201": {
@@ -3229,7 +3231,8 @@
                                 "description": "Registrant status."
                             }
                         }
-                    }
+                    },
+                    "description": "Status action and the recording registrants it applies to"
                 },
                 "responses": {
                     "204": {
@@ -3537,7 +3540,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "Recording settings to update for the meeting"
                 },
                 "responses": {
                     "204": {
@@ -3710,7 +3714,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "Recovery action for the single recording file"
                 },
                 "responses": {
                     "204": {
@@ -3979,7 +3984,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "Recovery action for all recordings of the meeting"
                 },
                 "responses": {
                     "200": {
@@ -4151,7 +4157,6 @@
                         "schema": {
                             "type": "string",
                             "example": "null or cloud_recording_only or my_notes_recording_only",
-                            "default": "null",
                             "enum": [
                                 "cloud_recording_only",
                                 "my_notes_recording_only"
@@ -4907,7 +4912,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "Details of the device to add"
                 },
                 "responses": {
                     "202": {
@@ -5087,7 +5093,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "Device and the user or common area to assign it to"
                 },
                 "responses": {
                     "204": {
@@ -5373,7 +5380,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "ZPA firmware or app upgrade to apply and its target devices"
                 },
                 "responses": {
                     "202": {
@@ -5864,7 +5872,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "New name for the device"
                 },
                 "responses": {
                     "204": {
@@ -6018,7 +6027,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "Room or user to associate the device with"
                 },
                 "responses": {
                     "204": {
@@ -6565,7 +6575,8 @@
                                 "description": "The H.323/SIP device object."
                             }
                         }
-                    }
+                    },
+                    "description": "H.323/SIP device fields to update"
                 },
                 "responses": {
                     "204": {
@@ -6964,7 +6975,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "Updated content of the live meeting chat message"
                 },
                 "responses": {
                     "204": {
@@ -7219,7 +7231,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "In-meeting control method and its parameters"
                 },
                 "responses": {
                     "202": {
@@ -7518,7 +7531,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "Registrants to register for the meeting in one batch"
                 },
                 "responses": {
                     "201": {
@@ -7756,7 +7770,8 @@
                                 "description": "Invite links."
                             }
                         }
-                    }
+                    },
+                    "description": "Attendees and time-to-live for the meeting invite links"
                 },
                 "responses": {
                     "201": {
@@ -8150,11 +8165,6 @@
                                                                                 "format": "string",
                                                                                 "example": "https://example.com/j/11111"
                                                                             },
-                                                                            "status": {
-                                                                                "type": "string",
-                                                                                "description": "The status of the registrant's registration.   \n  `approved` - User has been successfully approved for the webinar.  \n  `pending` - The registration is still pending.  \n  `denied` - User has been denied from joining the webinar.",
-                                                                                "example": "approved"
-                                                                            },
                                                                             "participant_pin_code": {
                                                                                 "type": "integer",
                                                                                 "description": "The participant PIN code is used to authenticate audio participants before they join the meeting.",
@@ -8426,7 +8436,8 @@
                                 ]
                             }
                         }
-                    }
+                    },
+                    "description": "Details of the registrant to add to the meeting"
                 },
                 "responses": {
                     "201": {
@@ -8917,7 +8928,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "Status action and the meeting registrants it applies to"
                 },
                 "responses": {
                     "204": {
@@ -8992,7 +9004,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success.",
+                        "description": "The retrieved meeting registrant",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -12254,7 +12266,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "Passcode to embed in the meeting SIP URI"
                 },
                 "responses": {
                     "200": {
@@ -12366,7 +12379,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "Status action to apply to the meeting"
                 },
                 "responses": {
                     "204": {
@@ -15716,7 +15730,8 @@
                         "schema": {
                             "type": "string",
                             "example": "93398114182"
-                        }
+                        },
+                        "description": "The meeting's ID"
                     }
                 ],
                 "requestBody": {
@@ -17918,7 +17933,7 @@
                     {
                         "name": "to",
                         "in": "query",
-                        "description": "End date.",
+                        "description": "End date in 'yyyy-mm-dd' format",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -20453,7 +20468,7 @@
                     {
                         "name": "to",
                         "in": "query",
-                        "description": "End date.",
+                        "description": "End date in 'yyyy-mm-dd' format",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -20715,7 +20730,7 @@
                     {
                         "name": "to",
                         "in": "query",
-                        "description": "End date.",
+                        "description": "End date in 'yyyy-mm-dd' format",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -20918,7 +20933,7 @@
                     {
                         "name": "to",
                         "in": "query",
-                        "description": "End date.",
+                        "description": "End date in 'yyyy-mm-dd' format",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -21183,7 +21198,7 @@
                     {
                         "name": "to",
                         "in": "query",
-                        "description": "End date.",
+                        "description": "End date in 'yyyy-mm-dd' format",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -21452,7 +21467,7 @@
                                                 },
                                                 "next_page_token": {
                                                     "type": "string",
-                                                    "description": "The next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceeds the current page size. The expiration period for this token is 15 minutes.",
+                                                    "description": "The next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceeds the current page size. The expiration period for this token is 15 minutes",
                                                     "example": "w7587w4eiyfsudgk"
                                                 },
                                                 "to": {
@@ -22771,11 +22786,12 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "SIP phone configuration to enable for a user"
                 },
                 "responses": {
                     "201": {
-                        "description": "**HTTP Status Code:** `201`  \n \nSIP phone created.\n",
+                        "description": "**HTTP Status Code:** `201`  \n \nSIP phone created\n",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -23170,7 +23186,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "SIP phone configuration fields to update"
                 },
                 "responses": {
                     "204": {
@@ -24425,7 +24442,8 @@
                                 "description": "Information about the meeting survey."
                             }
                         }
-                    }
+                    },
+                    "description": "Meeting survey questions and settings to update"
                 },
                 "responses": {
                     "204": {
@@ -24926,7 +24944,8 @@
                                 "description": "List of TSP accounts."
                             }
                         }
-                    }
+                    },
+                    "description": "TSP account details to add for the user"
                 },
                 "responses": {
                     "201": {
@@ -25677,7 +25696,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "Source meeting and name for the new meeting template"
                 },
                 "responses": {
                     "201": {
@@ -26154,7 +26174,8 @@
                                 "description": "Tracking field"
                             }
                         }
-                    }
+                    },
+                    "description": "Tracking field attributes to update"
                 },
                 "responses": {
                     "204": {
@@ -27307,7 +27328,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "Source webinar and name for the new webinar template"
                 },
                 "responses": {
                     "201": {
@@ -28366,7 +28388,8 @@
                                 "description": "Webinar object."
                             }
                         }
-                    }
+                    },
+                    "description": "Details of the webinar to create"
                 },
                 "responses": {
                     "201": {
@@ -30323,7 +30346,7 @@
                     }
                 ],
                 "requestBody": {
-                    "description": "Webinar.",
+                    "description": "Webinar",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -31159,7 +31182,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "Registrants to register for the webinar in one batch"
                 },
                 "responses": {
                     "201": {
@@ -31450,7 +31474,8 @@
                                 "description": "Name tag information"
                             }
                         }
-                    }
+                    },
+                    "description": "Name tag design to create for the webinar"
                 },
                 "responses": {
                     "201": {
@@ -31676,7 +31701,8 @@
                                 "description": "Name tag information."
                             }
                         }
-                    }
+                    },
+                    "description": "Name tag design fields to update"
                 },
                 "responses": {
                     "204": {
@@ -31769,7 +31795,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "Virtual background image file to upload for the webinar"
                 },
                 "responses": {
                     "201": {
@@ -32034,7 +32061,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "Wallpaper image file to upload for the webinar"
                 },
                 "responses": {
                     "201": {
@@ -33110,7 +33138,8 @@
                                 "description": "Webinar panelist."
                             }
                         }
-                    }
+                    },
+                    "description": "Panelists to add to the webinar"
                 },
                 "responses": {
                     "201": {
@@ -35148,7 +35177,8 @@
                                 "description": "Information about the webinar registrant."
                             }
                         }
-                    }
+                    },
+                    "description": "Details of the registrant to add to the webinar"
                 },
                 "responses": {
                     "201": {
@@ -35690,7 +35720,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "Status action and the webinar registrants it applies to"
                 },
                 "responses": {
                     "204": {
@@ -35775,7 +35806,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success.",
+                        "description": "The retrieved webinar registrant",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -35994,6 +36025,7 @@
                                                 },
                                                 "status": {
                                                     "type": "string",
+                                                    "description": "Registration status of the registrant",
                                                     "example": "approved"
                                                 }
                                             }
@@ -36152,7 +36184,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "Passcode to embed in the webinar SIP URI"
                 },
                 "responses": {
                     "201": {
@@ -36262,7 +36295,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "description": "Status action to apply to the webinar"
                 },
                 "responses": {
                     "200": {
@@ -36803,7 +36837,8 @@
                                 "description": "Information about the webinar survey."
                             }
                         }
-                    }
+                    },
+                    "description": "Webinar survey questions and settings to update"
                 },
                 "responses": {
                     "204": {
@@ -37056,9 +37091,9 @@
                 "type": "oauth2",
                 "flows": {
                     "authorizationCode": {
-                        "authorizationUrl": "/",
-                        "tokenUrl": "",
-                        "refreshUrl": "",
+                        "authorizationUrl": "https://zoom.us/oauth/authorize",
+                        "tokenUrl": "https://zoom.us/oauth/token",
+                        "refreshUrl": "https://zoom.us/oauth/token",
                         "scopes": {
                             "recording:read:admin": "recording:read:admin",
                             "archiving:read:list_archived_files:admin": "archiving:read:list_archived_files:admin",

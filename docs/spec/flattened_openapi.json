@@ -302,6 +302,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Auto-delete setting to apply to the archived file",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -899,6 +900,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Registrant details for access to the meeting's on-demand cloud recordings",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1051,6 +1053,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Status action and the recording registrants it applies to",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1145,6 +1148,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Recording settings to update for the meeting",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1272,6 +1276,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Recovery action for the single recording file",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1418,6 +1423,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Recovery action for all recordings of the meeting",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1585,7 +1591,6 @@
           "schema" : {
             "type" : "string",
             "example" : "null or cloud_recording_only or my_notes_recording_only",
-            "default" : "null",
             "enum" : [ "cloud_recording_only", "my_notes_recording_only" ]
           }
         } ],
@@ -1768,6 +1773,7 @@
         "description" : "Add a new device to Zoom account. \n\n**Scope:** `device:write:admin`   \n \n **[Rate Limit Label](https://developers.zoom.us/docs/api/rest/rate-limits/):** `Medium`\n\n**[Scopes](https://developers.zoom.us/docs/integrations/oauth-scopes-overview/):** `device:write:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId" : "addDevice",
         "requestBody" : {
+          "description" : "Details of the device to add",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1865,6 +1871,7 @@
         "description" : "Assign a device to a user or common area, or move a device to another user or common area, or remove a device.\n\n**Prerequisites:**\n* Device must be enrolled in Zoom Device Management (ZDM).\n\n**[Scopes](https://developers.zoom.us/docs/integrations/oauth-scopes-overview/):** `device:write:admin`\n\n**[Granular Scopes](https://developers.zoom.us/docs/integrations/oauth-scopes-overview/):** `device:write:zpa_device:admin`,`device:write:zpa_device:master`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId" : "Assigndevicetoauser/commonarea",
         "requestBody" : {
+          "description" : "Device and the user or common area to assign it to",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1955,6 +1962,7 @@
         "description" : "Upgrade ZPA firmware or app by Zoom Device Manager (ZDM) group ID. \n\n**Prerequisites:**  \n \n* Account owner or admin permissions. \n\n**[Scopes](https://developers.zoom.us/docs/integrations/oauth-scopes-overview/):** `device:write:admin`\n\n**[Granular Scopes](https://developers.zoom.us/docs/integrations/oauth-scopes-overview/):** `device:write:zpa_os_app:admin`,`device:write:zpa_os_app:master`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId" : "UpgradeZpas/app",
         "requestBody" : {
+          "description" : "ZPA firmware or app upgrade to apply and its target devices",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2195,6 +2203,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "New name for the device",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2303,6 +2312,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Room or user to associate the device with",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2532,6 +2542,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "H.323/SIP device fields to update",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2769,6 +2780,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Updated content of the live meeting chat message",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2821,6 +2833,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "In-meeting control method and its parameters",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3002,6 +3015,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Registrants to register for the meeting in one batch",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3113,6 +3127,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Attendees and time-to-live for the meeting invite links",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3293,6 +3308,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Details of the registrant to add to the meeting",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3467,6 +3483,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Status action and the meeting registrants it applies to",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3532,7 +3549,7 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Success.",
+            "description" : "The retrieved meeting registrant",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -4123,6 +4140,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Passcode to embed in the meeting SIP URI",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -4183,6 +4201,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Status action to apply to the meeting",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -4763,6 +4782,7 @@
         "parameters" : [ {
           "name" : "meetingId",
           "in" : "path",
+          "description" : "The meeting's ID",
           "required" : true,
           "style" : "simple",
           "explode" : false,
@@ -5346,7 +5366,7 @@
         }, {
           "name" : "to",
           "in" : "query",
-          "description" : "End date.",
+          "description" : "End date in 'yyyy-mm-dd' format",
           "required" : true,
           "style" : "form",
           "explode" : true,
@@ -6371,7 +6391,7 @@
         }, {
           "name" : "to",
           "in" : "query",
-          "description" : "End date.",
+          "description" : "End date in 'yyyy-mm-dd' format",
           "required" : true,
           "style" : "form",
           "explode" : true,
@@ -6473,7 +6493,7 @@
         }, {
           "name" : "to",
           "in" : "query",
-          "description" : "End date.",
+          "description" : "End date in 'yyyy-mm-dd' format",
           "required" : true,
           "style" : "form",
           "explode" : true,
@@ -6593,7 +6613,7 @@
         }, {
           "name" : "to",
           "in" : "query",
-          "description" : "End date.",
+          "description" : "End date in 'yyyy-mm-dd' format",
           "required" : true,
           "style" : "form",
           "explode" : true,
@@ -6711,7 +6731,7 @@
         }, {
           "name" : "to",
           "in" : "query",
-          "description" : "End date.",
+          "description" : "End date in 'yyyy-mm-dd' format",
           "required" : true,
           "style" : "form",
           "explode" : true,
@@ -7158,6 +7178,7 @@
         "description" : "Enable a user to use a SIP phone.  \n\nZoom's Phone System Integration (PSI), also referred as SIP phones, enables an organization to leverage the Zoom client to complete a softphone registration to supported premise based PBX system. End users will have the ability to have softphone functionality within a single client while maintaining a comparable interface to Zoom Phone. \n   \n \n**Prerequisites**:\n* Currently only supported on Cisco and Avaya PBX systems. \n* The account owner or account admin must first enable SIP Phone Integration by contacting the [Sales](https://zoom.us/contactsales) team.  \n  \n\n**[Scopes](https://developers.zoom.us/docs/integrations/oauth-scopes-overview/):** `sip_phone:write:admin`\n\n**[Granular Scopes](https://developers.zoom.us/docs/integrations/oauth-scopes-overview/):** `sip_phone:write:sip_phone:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId" : "EnableSIPPhonePhones",
         "requestBody" : {
+          "description" : "SIP phone configuration to enable for a user",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -7168,7 +7189,7 @@
         },
         "responses" : {
           "201" : {
-            "description" : "**HTTP Status Code:** `201`  \n \nSIP phone created.\n",
+            "description" : "**HTTP Status Code:** `201`  \n \nSIP phone created\n",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -7267,6 +7288,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "SIP phone configuration fields to update",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -7728,6 +7750,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Meeting survey questions and settings to update",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -7896,6 +7919,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "TSP account details to add for the user",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -8234,6 +8258,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Source meeting and name for the new meeting template",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -8448,6 +8473,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Tracking field attributes to update",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -8924,6 +8950,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Source webinar and name for the new webinar template",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -9079,6 +9106,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Details of the webinar to create",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -9284,7 +9312,7 @@
           }
         } ],
         "requestBody" : {
-          "description" : "Webinar.",
+          "description" : "Webinar",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -9337,6 +9365,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Registrants to register for the webinar in one batch",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -9448,6 +9477,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Name tag design to create for the webinar",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -9572,6 +9602,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Name tag design fields to update",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -9625,6 +9656,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Virtual background image file to upload for the webinar",
           "content" : {
             "multipart/form-data" : {
               "schema" : {
@@ -9802,6 +9834,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Wallpaper image file to upload for the webinar",
           "content" : {
             "multipart/form-data" : {
               "schema" : {
@@ -10323,6 +10356,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Panelists to add to the webinar",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -10910,6 +10944,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Details of the registrant to add to the webinar",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -11084,6 +11119,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Status action and the webinar registrants it applies to",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -11160,7 +11196,7 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Success.",
+            "description" : "The retrieved webinar registrant",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -11273,6 +11309,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Passcode to embed in the webinar SIP URI",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -11330,6 +11367,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Status action to apply to the webinar",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -11474,6 +11512,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Webinar survey questions and settings to update",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -15099,12 +15138,6 @@
             "description" : "The URL with which the approved registrant can join the meeting.",
             "format" : "url",
             "example" : "https://example.com/j/11111"
-          },
-          "status" : {
-            "type" : "string",
-            "description" : "The registrant's registration status.\n* `approved` - The registrant is approved to join the meeting. \n* `pending` - The registrant's registration is pending.\n* `denied` - The registrant was declined to join the meeting.",
-            "example" : "approved",
-            "enum" : [ "approved", "pending", "denied" ]
           },
           "participant_pin_code" : {
             "type" : "integer",
@@ -22997,11 +23030,6 @@
                         "format" : "string",
                         "example" : "https://example.com/j/11111"
                       },
-                      "status" : {
-                        "type" : "string",
-                        "description" : "The status of the registrant's registration.   \n  `approved` - User has been successfully approved for the webinar.  \n  `pending` - The registration is still pending.  \n  `denied` - User has been denied from joining the webinar.",
-                        "example" : "approved"
-                      },
                       "participant_pin_code" : {
                         "type" : "integer",
                         "description" : "The participant PIN code is used to authenticate audio participants before they join the meeting.",
@@ -23110,10 +23138,6 @@
             "type" : "string",
             "format" : "string",
             "example" : "https://example.com/j/11111"
-          },
-          "status" : {
-            "type" : "string",
-            "example" : "approved"
           }
         }
       },
@@ -26208,11 +26232,6 @@
             "description" : "The URL that an approved registrant can use to join the meeting or webinar.",
             "format" : "string",
             "example" : "https://example.com/j/11111"
-          },
-          "status" : {
-            "type" : "string",
-            "description" : "The status of the registrant's registration.\n  `approved` - User has been successfully approved for the webinar.  \n  `pending` -  The registration is still pending.  \n  `denied` - User has been denied from joining the webinar.",
-            "example" : "approved"
           }
         }
       },
@@ -28296,11 +28315,6 @@
               "$ref" : "#/components/schemas/InlineResponse20048Meetings"
             }
           },
-          "next_page_token" : {
-            "type" : "string",
-            "description" : "The next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceeds the current page size. The expiration period for this token is 15 minutes.",
-            "example" : "w7587w4eiyfsudgk"
-          },
           "to" : {
             "type" : "string",
             "description" : "The report's end date.",
@@ -28383,11 +28397,6 @@
             "type" : "string",
             "description" : "The cloud recording's password.\nInclude fields in the response. The password field requires the user role of the authorized account to enable the `View Recording Content` permission.",
             "example" : "981651"
-          },
-          "recording_play_passcode" : {
-            "type" : "string",
-            "description" : "The cloud recording's passcode to be used in the URL. Directly splice this recording's passcode in `play_url` or `share_url` with `?pwd=` to access and play. Example: 'https://zoom.us/rec/share/**************?pwd=yNYIS408EJygs7rE5vVsJwXIz4-VW7MH'.",
-            "example" : "yNYIS408EJygs7rE5vVsJwXIz4-VW7MH"
           }
         }
       },
@@ -30286,11 +30295,6 @@
             "description" : "The URL that an approved registrant can use to join the meeting or webinar.",
             "format" : "string",
             "example" : "https://example.com/j/11111"
-          },
-          "status" : {
-            "type" : "string",
-            "description" : "The status of the registrant's registration.   \n  `approved` - User has been successfully approved for the webinar.  \n  `pending` -  The registration is still pending.  \n  `denied` - User has been denied from joining the webinar.",
-            "example" : "approved"
           }
         }
       },
@@ -30926,9 +30930,9 @@
         "type" : "oauth2",
         "flows" : {
           "authorizationCode" : {
-            "authorizationUrl" : "/",
-            "tokenUrl" : "",
-            "refreshUrl" : "",
+            "authorizationUrl" : "https://zoom.us/oauth/authorize",
+            "tokenUrl" : "https://zoom.us/oauth/token",
+            "refreshUrl" : "https://zoom.us/oauth/token",
             "scopes" : {
               "recording:read:admin" : "recording:read:admin",
               "archiving:read:list_archived_files:admin" : "archiving:read:list_archived_files:admin",
